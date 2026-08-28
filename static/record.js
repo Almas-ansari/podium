@@ -37,6 +37,10 @@
     el.idle.classList.toggle("hidden", state !== "idle");
     el.live.classList.toggle("hidden", state !== "live");
     el.busy.classList.toggle("hidden", state !== "busy");
+    // Reset the controls for whichever state we land in, so a second attempt
+    // after an error behaves exactly like the first.
+    el.start.disabled = state !== "idle";
+    el.stop.disabled = state !== "live";
   }
 
   /* --- level meter ------------------------------------------------- */
@@ -132,7 +136,7 @@
         }
       });
     } catch (err) {
-      el.start.disabled = false;
+      show("idle");
       fail("We could not reach the microphone. Please allow microphone access and try again.");
       return;
     }
@@ -159,19 +163,21 @@
     if (!recorder || recorder.state === "inactive") return;
     if (timer) timer.stop();
     if (rafId) cancelAnimationFrame(rafId);
-    el.stop.disabled = true;
-    recorder.stop();
-    media.getTracks().forEach((t) => t.stop());
-    if (audioCtx) audioCtx.close();
     show("busy");
+    recorder.stop();          // releases the tracks in finish(), once flushed
+  }
+
+  function releaseMic() {
+    if (media) media.getTracks().forEach((t) => t.stop());
+    if (audioCtx && audioCtx.state !== "closed") audioCtx.close();
   }
 
   async function finish() {
+    releaseMic();
     const elapsed = (Date.now() - startedAt) / 1000;
     const original = new Blob(chunks, { type: chunks[0] ? chunks[0].type : "audio/webm" });
     if (elapsed < 3) {
       show("idle");
-      el.start.disabled = false;
       fail("That was too short to give feedback on. Try speaking for a bit longer.");
       return;
     }
@@ -181,7 +187,6 @@
       wav = await toWav(original);
     } catch (err) {
       show("idle");
-      el.start.disabled = false;
       fail("We could not read that recording. Please try once more.");
       return;
     }
@@ -216,15 +221,26 @@
         return;
       }
       show("idle");
-      el.start.disabled = false;
       fail(data.error || "Something went wrong. Please try again.");
     } catch (err) {
       show("idle");
-      el.start.disabled = false;
       fail("We could not reach the server. Check your connection and try again.");
     }
   }
 
-  el.start.addEventListener("click", begin);
-  el.stop.addEventListener("click", stop);
+  function guarded(fn) {
+    return function () {
+      try {
+        return fn.apply(null, arguments);
+      } catch (err) {
+        console.error(err);
+        show("idle");
+        fail("Something went wrong starting the recorder. Please try again.");
+      }
+    };
+  }
+
+  el.start.addEventListener("click", guarded(begin));
+  el.stop.addEventListener("click", guarded(stop));
+  show("idle");
 })();

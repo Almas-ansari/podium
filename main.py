@@ -38,6 +38,9 @@ templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 MAX_UPLOAD_BYTES = 25 * 1024 * 1024  # Groq's own file size ceiling
 
+# Bump when a file in static/ changes, so browsers do not serve a stale copy.
+ASSET_VERSION = "5"
+
 
 @app.on_event("shutdown")
 def shutdown() -> None:
@@ -73,6 +76,7 @@ def base_context(request: Request) -> dict[str, Any]:
     parent = auth.current_parent(request)
     child = auth.active_child(request) if parent else None
     return {
+        "v": ASSET_VERSION,
         "parent": parent,
         "child": child,
         "children": db.list_children(parent["id"]) if parent else [],

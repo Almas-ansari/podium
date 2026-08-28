@@ -62,7 +62,7 @@
 
 {% block scripts %}
 <script>window.SPEAK_CONFIG = { topicId: {{ topic.id }}, seconds: {{ seconds }} };</script>
-<script src="/static/audiostore.js"></script>
-<script src="/static/timers.js"></script>
-<script src="/static/record.js"></script>
+<script src="/static/audiostore.js?v={{ v }}"></script>
+<script src="/static/timers.js?v={{ v }}"></script>
+<script src="/static/record.js?v={{ v }}"></script>
 {% endblock %}

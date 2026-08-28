@@ -62,7 +62,7 @@
 
 {% block scripts %}
 {% if request.query_params.get('wipe') %}
-<script src="/static/audiostore.js"></script>
+<script src="/static/audiostore.js?v={{ v }}"></script>
 <script>
   /* The server has cleared its side. Recordings live in this browser, so only
      this page can remove them. */
