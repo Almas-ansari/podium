@@ -39,6 +39,11 @@ templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 MAX_UPLOAD_BYTES = 25 * 1024 * 1024  # Groq's own file size ceiling
 
 
+@app.on_event("shutdown")
+def shutdown() -> None:
+    db.close_pool()
+
+
 @app.on_event("startup")
 def startup() -> None:
     db.init_db()

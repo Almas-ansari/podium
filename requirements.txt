@@ -10,6 +10,7 @@ praat-parselmouth>=0.4.7
 # Postgres, used when DATABASE_URL is set. Harmless locally, where the app
 # falls back to SQLite.
 psycopg[binary]>=3.2
+psycopg_pool>=3.2
 
 # Google sign-in
 authlib>=1.3

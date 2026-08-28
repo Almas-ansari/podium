@@ -385,3 +385,23 @@ def test_schema_uses_the_right_autoincrement_per_backend(monkeypatch):
     assert "BIGSERIAL PRIMARY KEY" in sql
     assert "AUTOINCREMENT" not in sql
     assert "{SERIAL}" not in sql
+
+
+def test_parameterless_sql_with_a_literal_percent_is_not_treated_as_a_placeholder(tmp_path, monkeypatch):
+    """A LIKE pattern must survive. psycopg only parses placeholders when params
+    is not None, so an empty tuple has to become None."""
+    from app import config, db as db_mod
+
+    path = tmp_path / "coach.db"
+    monkeypatch.setattr(config, "DB_PATH", path)
+    monkeypatch.setattr(db_mod, "DB_PATH", path)
+    monkeypatch.setattr(db_mod, "USE_POSTGRES", False)
+    db_mod.init_db()
+    db_mod.upsert_parent("dev:someone", "dev@example.com", "Dev")
+    db_mod.upsert_parent("google-sub-1", "real@example.com", "Real Parent")
+
+    with db_mod.connect() as conn:
+        rows = conn.execute(
+            "SELECT email FROM parents WHERE google_sub NOT LIKE 'dev:%'"
+        ).fetchall()
+    assert [r["email"] for r in rows] == ["real@example.com"]

@@ -31,6 +31,7 @@
 
       <div class="masthead-right">
         {% if parent %}
+          {# Child switcher: only meaningful once there is more than one profile. #}
           {% if children %}
           <details class="switcher">
             <summary>
@@ -50,15 +51,33 @@
               {% endfor %}
               <div class="menu-foot">
                 <a class="menu-item" href="/children">Manage profiles</a>
-                <a class="menu-item" href="/signout">Sign out</a>
               </div>
             </div>
           </details>
           {% endif %}
+
+          {# Account menu, always present. Signing out must never depend on
+             whether a child profile happens to exist yet. #}
+          <details class="switcher switcher--account">
+            <summary aria-label="Account">
+              <span class="avatar avatar--account">{{ (parent['name'] or parent['email'])[0] | upper }}</span>
+            </summary>
+            <div class="menu">
+              <p class="label menu-label">Signed in</p>
+              <p class="menu-identity">
+                <b>{{ parent['name'] or 'Parent' }}</b>
+                <em>{{ parent['email'] }}</em>
+              </p>
+              <div class="menu-foot">
+                <a class="menu-item" href="/children">Manage profiles</a>
+                <a class="menu-item" href="/guide">Guide</a>
+                <a class="menu-item" href="/signout">Sign out</a>
+              </div>
+            </div>
+          </details>
         {% else %}
           <a class="btn" href="/signin">Sign in</a>
         {% endif %}
-      </div>
     </header>
 
     <main>{% block content %}{% endblock %}</main>

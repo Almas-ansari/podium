@@ -5,7 +5,9 @@
 {% block content %}
 <div class="flow-lg">
   <div class="band">
-    <p class="label" style="margin-bottom:var(--s3)">{{ parent['email'] }}</p>
+    <p class="label" style="margin-bottom:var(--s3)">
+      Signed in as {{ parent['name'] or parent['email'] }}
+    </p>
     <h1 style="margin-bottom:var(--s3)">Who is practising?</h1>
     <p class="lede">
       One profile per child. Each keeps its own history, streak, topic rotation and voice baseline,

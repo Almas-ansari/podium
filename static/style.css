@@ -164,11 +164,12 @@ svg { display: block; }
 /* ============================================================ layout */
 
 .shell {
-  max-width: 1080px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--s5) var(--s9);
 }
-.shell--reading { max-width: 720px; }
+.shell--reading { max-width: 880px; }
+.shell--narrow  { max-width: 520px; }
 
 /* Vertical rhythm: sections breathe, items inside them do not. */
 .flow > * + *      { margin-top: var(--s5); }
@@ -1207,7 +1208,9 @@ audio { width: 100%; margin-top: var(--s2); }
    from the viewport, not from shrinking anything.
    ========================================================================= */
 
-.shell--wide { max-width: 1440px; }
+/* Dashboards use the monitor rather than a fixed column: they are tables and
+   charts, not prose, so they gain from the extra width. */
+.shell--wide { max-width: min(1760px, 95vw); }
 
 .dash {
   display: grid;
@@ -1267,3 +1270,20 @@ audio { width: 100%; margin-top: var(--s2); }
 
 /* Columns that should size to their content rather than match the row. */
 .col--top { align-items: flex-start; }
+
+/* --- account menu -------------------------------------------------- */
+
+.switcher--account > summary { padding: var(--s1); gap: 0; }
+.avatar--account {
+  background: var(--ink); border-color: var(--ink); color: var(--bg);
+}
+.menu-identity {
+  padding: 0 var(--s3) var(--s2);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--s1);
+}
+.menu-identity b { display: block; font-size: var(--text-sm); font-weight: 600; }
+.menu-identity em {
+  display: block; font-style: normal; font-size: var(--text-xs); color: var(--ink-3);
+  overflow: hidden; text-overflow: ellipsis; max-width: 24ch;
+}

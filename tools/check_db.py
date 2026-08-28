@@ -64,6 +64,7 @@ def main() -> int:
     print("cleanup  : ok")
 
     print("\nDatabase is ready.")
+    db.close_pool()
     return 0
 
 

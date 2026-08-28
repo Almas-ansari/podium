@@ -99,17 +99,71 @@ def _adapt(sql: str) -> str:
     return "".join(out)
 
 
+# One pool for the process. Without it every connect() paid a fresh TCP and TLS
+# handshake to the database region, and a single page makes about ten calls -
+# which turned a 15ms page into a 15 second one.
+_pool = None
+
+
+def _get_pool():
+    global _pool
+    if _pool is None:
+        from psycopg.rows import dict_row
+        from psycopg_pool import ConnectionPool
+
+        _pool = ConnectionPool(
+            DATABASE_URL,
+            min_size=1,
+            max_size=8,
+            timeout=15,
+            max_idle=300,
+            kwargs={"row_factory": dict_row, "autocommit": True},
+            open=True,
+        )
+    return _pool
+
+
+def close_pool() -> None:
+    """Shut the pool down. Without this its worker threads outlive the
+    interpreter and raise PythonFinalizationError at exit."""
+    global _pool
+    if _pool is not None:
+        _pool.close()
+        _pool = None
+
+
 class Conn:
     """Thin wrapper so callers can use `with connect() as conn` on either backend."""
 
-    def __init__(self, raw, is_postgres: bool):
+    def __init__(self, raw, is_postgres: bool, pool=None):
         self.raw = raw
         self.is_postgres = is_postgres
+        self.pool = pool
+        self.wrote = False
 
     def execute(self, sql: str, params=()):
-        return self.raw.execute(_adapt(sql), tuple(params))
+        # The two drivers want opposite things for a parameterless query.
+        # psycopg only parses placeholders when params is not None, and an empty
+        # tuple makes it try - so a literal % in the SQL, a LIKE pattern say,
+        # raises "only '%s', '%b', '%t' are allowed". sqlite3 meanwhile rejects
+        # None and wants a sequence.
+        if not sql.lstrip()[:6].upper().startswith("SELECT"):
+            self.wrote = True
+        args = tuple(params)
+        if self.is_postgres and not args:
+            return self.raw.execute(_adapt(sql))
+        return self.raw.execute(_adapt(sql), args)
+
+    def transaction(self):
+        """All-or-nothing for multi-statement writes. Under autocommit Postgres
+        needs this explicitly; SQLite already commits once at block exit."""
+        if self.is_postgres:
+            return self.raw.transaction()
+        import contextlib
+        return contextlib.nullcontext()
 
     def executescript(self, script: str) -> None:
+        self.wrote = True
         if self.is_postgres:
             for statement in filter(None, (s.strip() for s in script.split(";"))):
                 self.raw.execute(statement)
@@ -121,20 +175,23 @@ class Conn:
 
     def __exit__(self, exc_type, exc, tb) -> None:
         try:
-            if exc_type is None:
+            if self.is_postgres:
+                pass          # autocommit: nothing outstanding either way
+            elif exc_type is None:
                 self.raw.commit()
             else:
                 self.raw.rollback()
         finally:
-            self.raw.close()
+            if self.pool is not None:
+                self.pool.putconn(self.raw)   # back to the pool, not closed
+            else:
+                self.raw.close()
 
 
 def connect() -> Conn:
     if USE_POSTGRES:
-        import psycopg
-        from psycopg.rows import dict_row
-
-        return Conn(psycopg.connect(DATABASE_URL, row_factory=dict_row), True)
+        pool = _get_pool()
+        return Conn(pool.getconn(), True, pool=pool)
 
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     # If the file has gone (deleted by hand, wiped by a container restart), rebuild
@@ -367,9 +424,10 @@ def delete_child(child_id: str, parent_id: str) -> list[str]:
                 (child_id,),
             ).fetchall()
         ]
-        conn.execute("DELETE FROM sessions WHERE child_id = ?", (child_id,))
-        conn.execute("DELETE FROM topic_history WHERE child_id = ?", (child_id,))
-        conn.execute("DELETE FROM children WHERE id = ?", (child_id,))
+        with conn.transaction():
+            conn.execute("DELETE FROM sessions WHERE child_id = ?", (child_id,))
+            conn.execute("DELETE FROM topic_history WHERE child_id = ?", (child_id,))
+            conn.execute("DELETE FROM children WHERE id = ?", (child_id,))
     return [p for p in paths if p]
 
 

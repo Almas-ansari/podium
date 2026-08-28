@@ -59,7 +59,7 @@
       <label class="field" style="margin:0">
         <span>Parent or guardian name</span>
         <input class="input" type="text" name="parent_name" required autocomplete="name"
-               placeholder="Your full name">
+               value="{{ parent['name'] or '' }}" placeholder="Your full name">
       </label>
 
       <label class="check">
