@@ -285,6 +285,7 @@ def test_database_rebuilds_its_schema_if_the_file_disappears(tmp_path, monkeypat
     path = tmp_path / "coach.db"
     monkeypatch.setattr(config, "DB_PATH", path)
     monkeypatch.setattr(db_mod, "DB_PATH", path)
+    monkeypatch.setattr(db_mod, "USE_POSTGRES", False)
 
     db_mod.init_db()
     parent = db_mod.upsert_parent("sub-1", "a@example.com", "A Parent")
@@ -301,6 +302,7 @@ def test_a_parent_cannot_read_another_parents_child(tmp_path, monkeypatch):
     path = tmp_path / "coach.db"
     monkeypatch.setattr(config, "DB_PATH", path)
     monkeypatch.setattr(db_mod, "DB_PATH", path)
+    monkeypatch.setattr(db_mod, "USE_POSTGRES", False)
     db_mod.init_db()
 
     mine = db_mod.upsert_parent("sub-a", "a@example.com", "A")
@@ -321,6 +323,7 @@ def test_siblings_keep_separate_histories(tmp_path, monkeypatch):
     path = tmp_path / "coach.db"
     monkeypatch.setattr(config, "DB_PATH", path)
     monkeypatch.setattr(db_mod, "DB_PATH", path)
+    monkeypatch.setattr(db_mod, "USE_POSTGRES", False)
     db_mod.init_db()
 
     parent = db_mod.upsert_parent("sub-a", "a@example.com", "A")

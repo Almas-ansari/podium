@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
-from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
@@ -21,7 +21,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from app import auth, charts, db, feedback as feedback_mod, ideas as ideas_mod, metrics_text, pipeline, topics
 from app.config import (
     AGE_BANDS, BASE_DIR, MAX_CHILDREN_PER_PARENT, MODES, PREP_CHOICES, SESSION_SECRET,
-    TIMER_CHOICES, google_configured, has_api_key,
+    SECURE_COOKIES, TIMER_CHOICES, google_configured, has_api_key,
 )
 from app.groq_client import TranscriptionError
 
@@ -31,7 +31,7 @@ log = logging.getLogger("coach")
 app = FastAPI(title="Podium", docs_url=None, redoc_url=None)
 app.add_middleware(
     SessionMiddleware, secret_key=SESSION_SECRET, same_site="lax",
-    https_only=False, max_age=60 * 60 * 24 * 30,
+    https_only=SECURE_COOKIES, max_age=60 * 60 * 24 * 30,
 )
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
@@ -117,8 +117,12 @@ def signin(request: Request):
 async def google_login(request: Request):
     if not google_configured():
         return RedirectResponse("/signin?error=not_configured", status_code=303)
-    redirect_uri = request.url_for("auth_callback")
-    return await auth.oauth.google.authorize_redirect(request, str(redirect_uri))
+    redirect_uri = str(request.url_for("auth_callback"))
+    if redirect_uri.startswith("http://") and request.headers.get("x-forwarded-proto") == "https":
+        # Belt and braces if the proxy headers are not being trusted upstream.
+        redirect_uri = "https://" + redirect_uri[len("http://"):]
+    log.info("google sign-in redirect_uri=%s", redirect_uri)
+    return await auth.oauth.google.authorize_redirect(request, redirect_uri)
 
 
 @app.get("/auth/callback", name="auth_callback")
@@ -128,7 +132,9 @@ async def auth_callback(request: Request):
     try:
         token = await auth.oauth.google.authorize_access_token(request)
     except Exception as exc:
-        log.warning("google sign-in failed: %s", exc)
+        log.error("google sign-in failed: %s: %s", type(exc).__name__, exc)
+        log.error("  callback url seen as: %s", request.url)
+        log.error("  session cookie present: %s", "session" in request.cookies)
         return RedirectResponse("/signin?error=failed", status_code=303)
 
     info = token.get("userinfo") or {}
@@ -850,6 +856,12 @@ def delete_everything(request: Request, confirm: str = Form(None)):
     auth.sign_out(request)
     # ?wipe=1 tells the sign-in page to clear the recordings held in this browser.
     return RedirectResponse("/signin?deleted=1&wipe=1", status_code=303)
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon():
+    """The real icon is an inline data URI in the template; this just stops the 404s."""
+    return Response(status_code=204)
 
 
 @app.get("/health")

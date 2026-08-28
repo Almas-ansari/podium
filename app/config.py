@@ -22,6 +22,10 @@ SESSION_SECRET = os.getenv("SESSION_SECRET", "").strip() or secrets.token_urlsaf
 # it hands out a parent account to anyone who clicks the button.
 ALLOW_DEV_LOGIN = os.getenv("ALLOW_DEV_LOGIN", "").lower() in ("1", "true", "yes")
 
+# Mark the session cookie Secure. On by default anywhere HTTPS is in use; turn it
+# off only for plain-http local development.
+SECURE_COOKIES = os.getenv("SECURE_COOKIES", "").lower() in ("1", "true", "yes")
+
 WHISPER_MODEL = os.getenv("WHISPER_MODEL", "whisper-large-v3")
 LLM_MODEL = os.getenv("LLM_MODEL", "openai/gpt-oss-120b")
 # gpt-oss and qwen3 on Groq are reasoning models: without this they spend the

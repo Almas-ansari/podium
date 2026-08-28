@@ -25,4 +25,7 @@ RUN mkdir -p data && chmod 777 data
 
 EXPOSE 7860
 
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-7860} --workers 1"]
+# --proxy-headers is required behind a TLS-terminating proxy (Render, Spaces,
+# Koyeb): without it request.url_for() builds http:// URLs and Google OAuth
+# fails with a redirect_uri mismatch.
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-7860} --workers 1 --proxy-headers --forwarded-allow-ips=*"]
