@@ -261,19 +261,6 @@ Free tiers sleep. Render's free web service spins down after ~15 minutes idle, a
 the next visitor waits 30–60 seconds. **That is not this app being slow** — it imports
 in about 280 ms; the wait is container scheduling, and no amount of code tuning removes it.
 
-Two things actually fix it:
-
-**1. Pick a host that sleeps on a sane schedule.** Hugging Face Spaces (Docker SDK)
-free CPU sleeps after **48 hours** of inactivity rather than 15 minutes, and needs no
-credit card. For anything with occasional traffic it effectively never sleeps.
-
-**2. Stop the visitor waiting on it.** The landing and guide pages carry no user data,
-so they can be pre-rendered and served instantly from a CDN:
-
-```bash
-python tools/export_static.py --api https://your-backend-url
-# deploy dist/ to Cloudflare Pages / Netlify / GitHub Pages
-```
 
 Those pages ping `/health` on load, so a sleeping container starts waking while the
 visitor is still reading. By the time they click **Sign in**, it is warm. The perceived
