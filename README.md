@@ -8,7 +8,7 @@ part it exists for is the thinking — whether the child gave a real example, ba
 with a reason, and explored one idea instead of touching five and dropping them. That is the
 teachable half, and it is the half nearly every competing product skips.
 
-Built by **Almas Ansari** with [Claude Code](https://claude.com/claude-code) —
+Built by **Almas Ansari** —
 [email](mailto:itsmealmas.ansari@gmail.com) ·
 [LinkedIn](https://www.linkedin.com/in/almasansari0/) ·
 [GitHub](https://github.com/Almas-ansari) ·
