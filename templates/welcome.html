@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}{% if just_added %}Welcome{% else %}Podium{% endif %}{% endblock %}
+
+
+{% block content %}
+<div class="flow-lg">
+
+  {% if api_key_missing %}
+  <div class="notice notice--warn">
+    <strong>Setup needed.</strong> No <code>GROQ_API_KEY</code> found. Add it to <code>.env</code>
+    and restart the server.
+  </div>
+  {% endif %}
+
+  <section class="band">
+    {% if just_added %}
+    <p class="label" style="margin-bottom:var(--s3)">Profile created</p>
+    <h1 class="display" style="margin-bottom:var(--s4)">{{ child.name }} is set up.</h1>
+    <p class="lede">
+      You have just done the most useful thing for a child's speaking: given them a reason to
+      practise regularly. Most children never speak for a full minute uninterrupted.
+      {{ child.name }} now can, as often as they like.
+    </p>
+    {% else %}
+    <p class="label" style="margin-bottom:var(--s3)">
+      {{ child.name }}{% if sessions %} · {{ sessions }} speech{{ 'es' if sessions != 1 }} so far{% endif %}
+    </p>
+    <h1 class="display" style="margin-bottom:var(--s4)">
+      {% if sessions %}Welcome back.{% else %}Here is how it works.{% endif %}
+    </h1>
+    <p class="lede">
+      A topic, a timer, and honest feedback on both halves of speaking well — the ideas and the
+      delivery.
+    </p>
+    {% endif %}
+  </section>
+
+  <section class="cards">
+    <a class="jump jump--primary" href="{{ '/practise' if has_consent else '/consent' }}">
+      <span class="jump-body">
+        <b>{% if not has_consent %}Give consent to begin{% elif sessions %}Practise again{% else %}Try the first topic{% endif %}</b>
+        <em>Pick a mode, get a topic, speak. About two minutes.</em>
+      </span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="jump" href="/parent">
+      <span class="jump-body">
+        <b>Progress</b>
+        <em>{% if sessions %}Trends across {{ sessions }} speech{{ 'es' if sessions != 1 }}{% else %}Where progress will appear{% endif %}</em>
+      </span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="jump" href="/children">
+      <span class="jump-body">
+        <b>Add another child</b>
+        <em>Each gets their own history and voice baseline</em>
+      </span>
+      <span aria-hidden="true">&rarr;</span>
+    </a>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>What gets looked at</h2></div>
+    <dl class="tenets">
+      <div>
+        <dt>The thinking</dt>
+        <dd>
+          Did they give a real example or stay vague? Back a claim with a reason? Explore one idea
+          properly, or touch five and drop them? Seven things are scored here, and this is the half
+          that makes a mind sharper.
+        </dd>
+      </div>
+      <div>
+        <dt>The speaking</dt>
+        <dd>
+          Pace, pauses, filler words, repetition and how the voice moves. Measured from the audio
+          and the word timings, never guessed, so the same recording always gives the same numbers.
+        </dd>
+      </div>
+      <div>
+        <dt>Measured against {{ child.name }}</dt>
+        <dd>
+          A young child's voice is naturally higher and quieter. Pitch and volume are judged
+          against {{ child.name }}'s own first three speeches, never a fixed chart, so nobody is
+          told they are shrieking for sounding their age.
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>How one speech works</h2></div>
+    <div class="steps">
+      <div class="step"><b>01</b><span>A topic appears, chosen for ages {{ child.age_band }} and never repeated until the pool runs out</span></div>
+      <div class="step"><b>02</b><span>Plan it with a five-box scaffold, or start speaking straight away</span></div>
+      <div class="step"><b>03</b><span>Speak for 60, 90 or 120 seconds while the timer runs</span></div>
+      <div class="step"><b>04</b><span>One thing done well, one thing to try, and a full report</span></div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Practise — Podium{% endblock %}
+{% block shell_class %}shell--reading{% endblock %}
+
+{% block content %}
+<div class="flow-lg">
+  {% if api_key_missing %}
+  <div class="notice notice--warn">
+    <strong>Setup needed.</strong> No <code>GROQ_API_KEY</code> found.
+  </div>
+  {% endif %}
+
+  <section class="band">
+    <p class="label" style="margin-bottom:var(--s3)">
+      {% if sessions %}{{ sessions }} speech{{ 'es' if sessions != 1 }} so far{% else %}First speech{% endif %}
+    </p>
+    <h1 class="display" style="margin-bottom:var(--s3)">Ready when you are, {{ child.name }}.</h1>
+    <p class="lede" style="margin:0">
+      Pick how you want to speak today. You will get a topic, then talk about it out loud.
+    </p>
+  </section>
+
+  <form method="post" action="/start" class="flow">
+    <div>
+      <span class="label" style="display:block; margin-bottom:var(--s3)">Which kind of speech?</span>
+      <div class="options options--cols">
+        <label class="option">
+          <input type="radio" name="mode" value="impromptu"
+                 {% if prefs.get('mode', 'impromptu') == 'impromptu' %}checked{% endif %}>
+          <span>
+            <b>Impromptu</b>
+            <em>The topic appears and you speak straight away. Trains thinking on your feet.</em>
+          </span>
+        </label>
+        <label class="option">
+          <input type="radio" name="mode" value="prepared"
+                 {% if prefs.get('mode') == 'prepared' %}checked{% endif %}>
+          <span>
+            <b>Prepared</b>
+            <em>Plan your speech with notes first, then deliver it. Like elocution.</em>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <span class="label" style="display:block; margin-bottom:var(--s2)">Age band</span>
+      <div class="segment">
+        {% for band in age_bands %}
+        <label>
+          <input type="radio" name="age_band" value="{{ band }}" {% if child.age_band == band %}checked{% endif %}>
+          <span>{{ band }} years</span>
+        </label>
+        {% endfor %}
+      </div>
+      <p class="meta" style="margin-top:var(--s2)">Sets which topics {{ child.name }} gets.</p>
+    </div>
+
+    <div class="row">
+      <button class="btn btn--lg" type="submit">
+        {% if has_consent %}Give me a topic{% else %}Get started{% endif %} &rarr;
+      </button>
+      <a class="btn btn--quiet" href="/parent">See progress</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

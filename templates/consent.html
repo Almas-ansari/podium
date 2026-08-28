@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Consent — Podium{% endblock %}
+{% block shell_class %}shell--reading{% endblock %}
+
+{% block content %}
+<div class="flow-lg">
+  <section class="band">
+    <p class="label" style="margin-bottom:var(--s3)">One-time step, for a grown-up</p>
+    <h1 class="display" style="margin-bottom:var(--s4)">Consent for {{ child.name }}</h1>
+    <p class="lede">
+      Podium records {{ child.name }}'s voice to give speaking feedback. Under India's DPDP
+      Act 2023 a parent or guardian must agree before any recording happens. Asked once per child.
+    </p>
+  </section>
+
+  {% if error %}
+  <div class="notice notice--error">Please enter your name and tick the box to continue.</div>
+  {% endif %}
+
+  <section>
+    <div class="section-head"><h2>What happens to the recording</h2></div>
+    <dl class="tenets">
+      <div>
+        <dt>It is transcribed, then deleted</dt>
+        <dd>
+          The recording is sent to a speech-to-text service to produce a transcript, then analysed
+          for pace, pauses and tone. <strong>It is deleted from our server the moment processing
+          finishes.</strong> A copy stays in this browser on your own device so you can play it
+          back; it never leaves your computer.
+        </dd>
+      </div>
+      <div>
+        <dt>Only words and numbers are kept</dt>
+        <dd>
+          The transcript and the measurements are stored on our side so you can see progress over
+          time on the dashboard. A first name and an age band is all we hold about your child.
+        </dd>
+      </div>
+      <div>
+        <dt>Two third parties, both named</dt>
+        <dd>
+          Google, for your sign-in only — it receives your name, email and picture, and is told
+          nothing about your child. Groq, for transcription. No advertising, no trackers, no
+          analytics.
+        </dd>
+      </div>
+      <div>
+        <dt>You can delete all of it</dt>
+        <dd>
+          One button on the dashboard removes every recording, transcript, measurement and consent
+          record. Your child is never shown a score, mark or percentage.
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <form method="post" action="/consent" class="flow">
+      <label class="field" style="margin:0">
+        <span>Parent or guardian name</span>
+        <input class="input" type="text" name="parent_name" required autocomplete="name"
+               placeholder="Your full name">
+      </label>
+
+      <label class="check">
+        <input type="checkbox" name="agree" value="yes" required>
+        <span>
+          I am the parent or legal guardian of {{ child.name }}, and I consent to their voice
+          being recorded and processed to give them speaking feedback.
+        </span>
+      </label>
+
+      <div><button class="btn btn--lg" type="submit">I agree — let them practise &rarr;</button></div>
+      <p class="meta">
+        Your name and the date and time of this consent are stored with {{ child.name }}'s record.
+      </p>
+    </form>
+  </section>
+</div>
+{% endblock %}

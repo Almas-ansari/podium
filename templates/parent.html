@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% block title %}Progress — Podium{% endblock %}
+{% block shell_class %}shell--wide{% endblock %}
+
+{% block content %}
+{% set latest = history[0] if history else None %}
+<div class="flow-lg">
+
+  <section>
+    <p class="label" style="margin-bottom:var(--s2)">
+      For parents{% if children | length > 1 %} · showing {{ child.name }}{% endif %}
+    </p>
+    <div class="row row--between" style="align-items:baseline">
+      <h1 style="font-size:var(--text-2xl)">{{ child.name }}'s progress</h1>
+      <p class="meta" style="max-width:46ch">
+        The numbers live here, not on your child's screen. They see one strength and one thing to try.
+      </p>
+    </div>
+  </section>
+
+  {% if request.query_params.get('delete') == 'invalid' %}
+  <div class="notice notice--error">Nothing was deleted. Type <strong>DELETE</strong> exactly to confirm.</div>
+  {% endif %}
+
+  {% if not history %}
+  <section class="panel">
+    <h2 style="margin-bottom:var(--s2)">No speeches yet</h2>
+    <p class="lede" style="margin-bottom:var(--s5)">
+      Once {{ child.name }} records their first speech, pace, filler words, pauses and idea
+      quality start plotting here.
+    </p>
+    <a class="btn btn--lg" href="/practise">Start the first speech &rarr;</a>
+  </section>
+  {% else %}
+
+  <div class="dash">
+
+    <div class="col-7 col--top">
+      <div class="verdict-band verdict-band--{{ headline.tone }}">
+        <p class="label" style="margin-bottom:var(--s2)">Where {{ child.name }} is at</p>
+        <p class="headline-text">{{ headline.text }}</p>
+        {% if headline.detail %}
+        <p class="meta" style="margin-top:var(--s3)">{{ headline.detail | capitalize }}.</p>
+        {% endif %}
+        {% if focus_now %}
+        <p class="meta" style="margin-top:var(--s2)">
+          Working on right now: <strong>{{ focus_now }}</strong>.
+        </p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-5">
+      <div class="tile-panel">
+        <div class="section-head">
+          <h2>Practice rhythm</h2>
+          <p class="meta">
+            {{ (coverage.spoken_seconds / 60) | round(0) | int }} min spoken ·
+            {{ total_words }} words · {{ badges.get('streak_days', 0) }} day streak
+          </p>
+        </div>
+        {{ calendar | safe }}
+        <div class="cal-key">
+          <span>Less</span>
+          <i class="cal-swatch cal-cell--0"></i><i class="cal-swatch cal-cell--1"></i>
+          <i class="cal-swatch cal-cell--2"></i><i class="cal-swatch cal-cell--3"></i>
+          <span>More</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <dl class="stats">
+        <div class="stat"><b class="num">{{ total }}</b><span>Speeches</span></div>
+        <div class="stat"><b class="num">{{ badges.get('streak_days', 0) }}</b><span>Day streak</span></div>
+        <div class="stat">
+          <b class="num">{{ latest.metrics.get('pace', {}).get('wpm', '—') }}</b>
+          <span>Pace, wpm
+            {% if trends.get('pace') %}<em class="trend trend--{{ trends.pace.direction }}">{{ '+' if trends.pace.delta > 0 else '' }}{{ trends.pace.delta }} since first</em>{% endif %}
+          </span>
+        </div>
+        <div class="stat">
+          <b class="num">{{ latest.metrics.get('fillers', {}).get('per_minute', '—') }}</b>
+          <span>Fillers a minute
+            {% if trends.get('fillers') %}<em class="trend trend--{{ trends.fillers.direction }}">{{ '+' if trends.fillers.delta > 0 else '' }}{{ trends.fillers.delta }} since first</em>{% endif %}
+          </span>
+        </div>
+        <div class="stat">
+          <b class="num">{% if latest.ideas.get('available') %}{{ latest.ideas.overall.out_of_100 }}{% else %}—{% endif %}</b>
+          <span>Idea quality /100
+            {% if trends.get('ideas') %}<em class="trend trend--{{ trends.ideas.direction }}">{{ '+' if trends.ideas.delta > 0 else '' }}{{ trends.ideas.delta }} since first</em>{% endif %}
+          </span>
+        </div>
+      </dl>
+    </div>
+
+    <div class="col-6"><div class="tile-panel">
+      {{ charts.ideas | safe }}
+      <p class="meta" style="margin-top:var(--s3)">Seven dimensions, weighted by mode.</p>
+    </div></div>
+
+    <div class="col-6"><div class="tile-panel">
+      {{ charts.dimensions | safe }}
+      <p class="meta" style="margin-top:var(--s3)">Average of the last five speeches.</p>
+    </div></div>
+
+    <div class="col-4"><div class="tile-panel">
+      {{ charts.pace | safe }}
+      <p class="meta" style="margin-top:var(--s3)">100–150 wpm is comfortable for a child.</p>
+    </div></div>
+
+    <div class="col-4"><div class="tile-panel">
+      {{ charts.fillers | safe }}
+      <p class="meta" style="margin-top:var(--s3)">Per minute of speaking.</p>
+    </div></div>
+
+    <div class="col-4"><div class="tile-panel">
+      {{ charts.pauses | safe }}
+      <p class="meta" style="margin-top:var(--s3)">Gaps longer than 0.7 seconds.</p>
+    </div></div>
+
+    {% if focus_history %}
+    <div class="col-4"><div class="tile-panel">
+      <div class="section-head">
+        <h2>Being worked on</h2>
+        <p class="meta">One per speech, by priority. Watch it move down the list.</p>
+      </div>
+      <ul class="datalist scroll-y">
+        {% for f in focus_history %}
+        <li><a class="datarow" href="/parent/session/{{ f.session_id }}" style="padding:var(--s3) 0">
+          <span class="datarow-main">
+            <b>{{ f.label | capitalize }}</b>
+            <span class="meta">#{{ f.n }} · {{ f.date }}</span>
+          </span>
+        </a></li>
+        {% endfor %}
+      </ul>
+    </div></div>
+    {% endif %}
+
+    <div class="col-4"><div class="tile-panel">
+      <div class="section-head">
+        <h2>Personal bests</h2>
+        <p class="meta">Each links to the speech that set it.</p>
+      </div>
+      <ul class="records">
+        {% for b in bests %}
+        <li><a href="/parent/session/{{ b.session_id }}">
+          <span class="record-value num">{{ b.value }}{{ b.unit }}</span>
+          <span class="record-body"><b>{{ b.label }}</b><em>{{ b.topic }}</em></span>
+        </a></li>
+        {% endfor %}
+      </ul>
+    </div></div>
+
+    <div class="col-4"><div class="tile-panel">
+      <div class="section-head">
+        <h2>Topics covered</h2>
+        <p class="meta">
+          {{ coverage.modes.get('impromptu', 0) }} impromptu ·
+          {{ coverage.modes.get('prepared', 0) }} prepared
+        </p>
+      </div>
+      <ul class="barlist scroll-y">
+        {% for c in coverage.categories %}
+        <li>
+          <span class="bar-label">{{ c.name }}</span>
+          <span class="bar-track"><span class="bar-fill" style="width:{{ c.pct }}%"></span></span>
+          <span class="bar-value">{{ c.count }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div></div>
+
+    {% if moments %}
+    {% for m in moments %}
+    <div class="col-3">
+      <figure class="quote">
+        <blockquote>{{ m.quote }}</blockquote>
+        <figcaption><a href="/parent/session/{{ m.session_id }}">{{ m.topic }}</a> · {{ m.date }}</figcaption>
+      </figure>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="col-12">
+      <div class="section-head"><h2>Every speech</h2></div>
+      <div class="panel panel--flush">
+        <ul class="datalist">
+          {% for item in history %}
+          <li>
+            <a class="datarow" href="/parent/session/{{ item.row['id'] }}">
+              <span class="datarow-main">
+                <b>{{ item.row['topic_text'] }}</b>
+                <span class="meta">
+                  #{{ item.n }} · {{ item.row['created_at'][:10] }} ·
+                  {{ item.row['mode'] | title }} · {{ item.row['duration'] | round(0) | int }}s
+                </span>
+              </span>
+              <span class="datarow-nums">
+                <span><b>{{ item.metrics.get('pace', {}).get('wpm', '—') }}</b><em>wpm</em></span>
+                <span><b>{{ item.metrics.get('fillers', {}).get('per_minute', '—') }}</b><em>fillers/min</em></span>
+                <span><b>{{ item.metrics.get('pauses', {}).get('count', '—') }}</b><em>pauses</em></span>
+                <span><b>{% if item.ideas.get('available') %}{{ item.ideas.overall.out_of_100 }}{% else %}—{% endif %}</b><em>ideas</em></span>
+              </span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  {% endif %}
+
+  <section>
+    <div class="section-head"><h2>Consent and data</h2></div>
+    <div class="flow-sm">
+      {% if child and child['consent_at'] %}
+      <p class="meta">
+        Consent for {{ child.name }} given by <strong>{{ child['consent_name'] }}</strong> on
+        {{ child['consent_at'][:10] }} at {{ child['consent_at'][11:16] }} UTC.
+      </p>
+      {% else %}
+      <p class="meta">No parental consent recorded yet. Recording is blocked until it is given.</p>
+      {% endif %}
+      <p class="meta">
+        Stored on our side: the transcript and the measurements of each speech, nothing else.
+        Recordings are deleted from the server as soon as they are processed, and the playback
+        copy lives only in this browser. No advertisers, no analytics, no tracking scripts.
+      </p>
+    </div>
+
+    <hr class="rule" style="margin:var(--s5) 0">
+
+    <h3 style="margin-bottom:var(--s2)">Delete my account and all data</h3>
+    <p class="meta" style="margin-bottom:var(--s3)">
+      Removes your account and <strong>every child profile under it</strong>, including all
+      recordings, transcripts, measurements and consent records. To remove just one child, use
+      <a href="/children">Manage profiles</a>.
+    </p>
+    <form method="post" action="/parent/delete" class="row">
+      <input class="input input--inline" type="text" name="confirm" placeholder="Type DELETE to confirm"
+             aria-label="Type DELETE to confirm" required>
+      <button class="btn btn--danger" type="submit">Delete everything</button>
+    </form>
+  </section>
+</div>
+{% endblock %}

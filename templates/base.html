@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{% block title %}Podium{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css?v=3">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b03e20' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 21V10h12v11z'/><path d='M12 10V4'/><path d='M9 4h6'/></svg>">
+</head>
+<body>
+  <div class="shell {% block shell_class %}{% endblock %}">
+    <header class="masthead">
+      {# Navigation sits with the brand on the left; identity and account
+         controls sit right. Doing it the other way round buries the primary
+         destinations behind the profile chip. #}
+      <div class="masthead-left">
+        <a class="wordmark" href="/">Podium</a>
+        {% if parent %}
+        <nav class="nav">
+          <a class="tab {{ 'is-on' if request.url.path in ('/practise', '/topic', '/speak', '/prep') }}" href="/practise">Practise</a>
+          <a class="tab {{ 'is-on' if request.url.path == '/guide' }}" href="/guide">Guide</a>
+          <a class="tab {{ 'is-on' if request.url.path.startswith('/parent') }}" href="/parent">Progress</a>
+        </nav>
+        {% else %}
+        <nav class="nav">
+          <a class="tab {{ 'is-on' if request.url.path == '/guide' }}" href="/guide">How it works</a>
+        </nav>
+        {% endif %}
+      </div>
+
+      <div class="masthead-right">
+        {% if parent %}
+          {% if children %}
+          <details class="switcher">
+            <summary>
+              <span class="avatar">{{ (child.name if child else '?')[0] | upper }}</span>
+              <span>{{ child.name if child else 'Choose' }}</span>
+            </summary>
+            <div class="menu">
+              <p class="label menu-label">Who is practising</p>
+              {% for option in children %}
+              <form method="post" action="/children/{{ option.id }}/select">
+                <input type="hidden" name="next" value="{{ request.url.path }}">
+                <button type="submit" class="menu-item {{ 'is-active' if child and option.id == child.id }}">
+                  <span class="avatar">{{ option.name[0] | upper }}</span>
+                  <span>{{ option.name }}<em>Ages {{ option.age_band }}</em></span>
+                </button>
+              </form>
+              {% endfor %}
+              <div class="menu-foot">
+                <a class="menu-item" href="/children">Manage profiles</a>
+                <a class="menu-item" href="/signout">Sign out</a>
+              </div>
+            </div>
+          </details>
+          {% endif %}
+        {% else %}
+          <a class="btn" href="/signin">Sign in</a>
+        {% endif %}
+      </div>
+    </header>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer class="colophon">
+      <span>Recordings are deleted from the server after processing and kept only in this browser.</span>
+      <span class="colophon-links">
+        <span>Built by <b>Almas Ansari</b></span>
+        <a href="mailto:itsmealmas.ansari@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/almasansari0/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/Almas-ansari" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://almas-ansari-i2oeimx.gamma.site" target="_blank" rel="noopener noreferrer">Portfolio</a>
+      </span>
+    </footer>
+  </div>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

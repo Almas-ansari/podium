@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+{% block title %}Podium — speaking practice for ages 6 to 14{% endblock %}
+
+{% block content %}
+<div class="flow-lg">
+
+  {# ---------------------------------------------------------------- hero #}
+  <section class="band">
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="label" style="margin-bottom:var(--s4)">Speaking practice · ages 6 to 14</p>
+        <h1 class="display" style="margin-bottom:var(--s5)">
+          One topic.<br>Your best thinking,<br>out loud.
+        </h1>
+        <p class="lede" style="margin-bottom:var(--s6)">
+          Your child gets a topic and speaks about it for a minute or two. Podium listens to
+          <em>what</em> they said as well as <em>how</em> they said it, then gives them one
+          specific thing they did well and one thing to try next time.
+        </p>
+        <div class="row">
+          <a class="btn btn--lg" href="/signin">Start practising &rarr;</a>
+          <a class="btn btn--outline btn--lg" href="#how">See how it works</a>
+        </div>
+        <p class="meta" style="margin-top:var(--s4)">
+          Free. A parent signs in once; children just tap their name.
+        </p>
+      </div>
+
+      {# A live render of the real feedback screen, not a stock photo. #}
+      <div class="preview" aria-label="Example of the feedback a child receives">
+        <div class="preview-bar">
+          <span class="preview-dot"></span><span class="preview-dot"></span><span class="preview-dot"></span>
+          <span class="preview-title">After a 90 second speech</span>
+        </div>
+        <div class="preview-body">
+          <p class="label preview-eyebrow">You spoke about</p>
+          <p class="preview-topic">The best thing about my school</p>
+
+          <div class="preview-verdict">
+            <span class="label">What you did well &nbsp;<span class="chip chip--good">Thinking</span></span>
+            <p>You gave us a real moment — your teacher staying back after class to explain maths.</p>
+          </div>
+          <div class="preview-verdict">
+            <span class="label">One thing to try next &nbsp;<span class="chip chip--accent">Speaking</span></span>
+            <p>Next time, slow down a little and take a breath at the end of each sentence.</p>
+          </div>
+          <div class="preview-verdict" style="display:flex; gap:var(--s5)">
+            <span class="streak-item"><b class="num">7</b><span class="meta">speeches</span></span>
+            <span class="streak-item"><b class="num">3</b><span class="meta">days in a row</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# --------------------------------------------------------------- facts #}
+  <section class="facts">
+    <div class="fact"><b>{{ topic_count }}</b><span>Topics, matched to age</span></div>
+    <div class="fact"><b>7</b><span>Dimensions of idea quality</span></div>
+    <div class="fact"><b>1</b><span>Thing to fix, never a list</span></div>
+    <div class="fact"><b>0</b><span>Scores shown to a child</span></div>
+  </section>
+
+  {# ------------------------------------------------------------ marquee #}
+  <section>
+    <div class="section-head">
+      <h2>Real topics, not filler</h2>
+      <p class="meta">
+        From school assemblies to would-you-rather to Independence Day. Filtered by age band and
+        never repeated until the pool runs out.
+      </p>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        {% for pass_no in [1, 2] %}
+          {% for t in showcase %}
+          <article class="topic-card" {% if pass_no == 2 %}aria-hidden="true"{% endif %}>
+            <b>{{ t.text }}</b>
+            <span class="chip">Ages {{ t.age_band }}</span>
+          </article>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {# ------------------------------------------------------- feature: ideas #}
+  <section class="feature">
+    <div class="feature-copy">
+      <p class="label" style="margin-bottom:var(--s3)">The half most apps skip</p>
+      <h2>It scores the thinking, not just the talking</h2>
+      <p>
+        Anyone can count filler words. The harder question is whether a child said anything worth
+        hearing — and that is the part that actually makes a mind sharper.
+      </p>
+      <ul class="feature-list">
+        <li>Did they give a concrete example, or stay vague?</li>
+        <li>Did they back a claim with a reason, or assert and drop it?</li>
+        <li>Did they explore one idea properly, or touch five and abandon them?</li>
+        <li>Did they find their own angle, or take the obvious one?</li>
+      </ul>
+    </div>
+    <div class="feature-art">
+      <p class="label" style="margin-bottom:var(--s3)">Idea dimensions, out of 5</p>
+      <svg class="viz" viewBox="0 0 320 178" role="img" aria-label="Seven idea dimensions scored out of five">
+        {% set dims = [('Specificity', 4), ('Personal stake', 4), ('Reasoning', 3),
+                       ('Angle', 3), ('Development', 2), ('On topic', 5), ('Structure', 4)] %}
+        {% for name, score in dims %}
+        {% set y = loop.index0 * 25 + 6 %}
+        <text class="viz-label" x="0" y="{{ y + 9 }}">{{ name }}</text>
+        <rect class="viz-track" x="112" y="{{ y + 2 }}" width="180" height="8" rx="4"/>
+        <rect class="viz-bar"   x="112" y="{{ y + 2 }}" width="{{ (score / 5 * 180) | round(0) | int }}" height="8" rx="4"/>
+        <text class="viz-value" x="320" y="{{ y + 9 }}" text-anchor="end">{{ score }}</text>
+        {% endfor %}
+      </svg>
+    </div>
+  </section>
+
+  {# ---------------------------------------------------- feature: delivery #}
+  <section class="feature feature--flip">
+    <div class="feature-copy">
+      <p class="label" style="margin-bottom:var(--s3)">Measured, never guessed</p>
+      <h2>Every number comes from the audio</h2>
+      <p>
+        Pace, pauses, filler words and loudness are computed from the waveform and the word
+        timings. No language model is asked how someone sounded, because it cannot hear them.
+        Run the same recording twice and you get the same numbers.
+      </p>
+      <ul class="feature-list">
+        <li>Where the pauses cluster — three in the first fifteen seconds means a weak opening</li>
+        <li>Whether the voice fades in the final third, which one instruction usually fixes</li>
+        <li>Pitch and volume judged against your own child's baseline, never a fixed chart</li>
+      </ul>
+    </div>
+    <div class="feature-art">
+      <p class="label" style="margin-bottom:var(--s3)">One speech on a time axis</p>
+      <svg class="viz" viewBox="0 0 320 150" role="img" aria-label="Loudness across a speech with pauses and filler words marked">
+        <rect class="viz-pause" x="96" y="12" width="16" height="98"/>
+        <rect class="viz-pause" x="188" y="12" width="10" height="98"/>
+        <path class="viz-fill" d="M8,84 L28,62 L48,74 L68,54 L88,70 L108,96 L128,58 L148,66 L168,50 L188,72 L208,96 L228,64 L248,72 L268,82 L288,92 L308,100 L308,110 L8,110 Z"/>
+        <path class="viz-wave" d="M8,84 L28,62 L48,74 L68,54 L88,70 L108,96 L128,58 L148,66 L168,50 L188,72 L208,96 L228,64 L248,72 L268,82 L288,92 L308,100"/>
+        <line class="viz-axis" x1="8" y1="110" x2="312" y2="110"/>
+        <circle class="viz-dot" cx="36" cy="120" r="3.5"/>
+        <circle class="viz-dot" cx="120" cy="120" r="3.5"/>
+        <circle class="viz-dot" cx="214" cy="120" r="3.5"/>
+        <text class="viz-value" x="8" y="142">0s</text>
+        <text class="viz-value" x="312" y="142" text-anchor="end">90s</text>
+        <text class="viz-value" x="96" y="8">pause</text>
+        <text class="viz-value" x="36" y="142">um</text>
+      </svg>
+    </div>
+  </section>
+
+  {# ------------------------------------------------------------- how it works #}
+  <section id="how">
+    <div class="section-head">
+      <h2>How one speech works</h2>
+      <p class="meta">About two minutes, start to finish.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="card-num">01</span>
+        <h3>Get a topic</h3>
+        <p>Matched to your child's age band, and never repeated until they have had them all.</p>
+      </article>
+      <article class="card">
+        <span class="card-num">02</span>
+        <h3>Plan, or don't</h3>
+        <p>Prepared mode gives a five-box scaffold. Impromptu starts the clock immediately.</p>
+      </article>
+      <article class="card">
+        <span class="card-num">03</span>
+        <h3>Speak out loud</h3>
+        <p>Sixty, ninety or a hundred and twenty seconds, with the timer running.</p>
+      </article>
+      <article class="card">
+        <span class="card-num">04</span>
+        <h3>Hear one thing back</h3>
+        <p>One strength and one thing to try. The full report waits on a second tab, for you.</p>
+      </article>
+    </div>
+  </section>
+
+  {# ------------------------------------------------------------- principles #}
+  <section class="band band--plain">
+    <div class="section-head"><h2>Built on three decisions</h2></div>
+    <dl class="tenets">
+      <div>
+        <dt>No scores shown to a child</dt>
+        <dd>
+          A child who sees 43 out of 100 stops speaking. The encouraging feedback comes first; the
+          numbers sit on a second tab, for a grown-up to open.
+        </dd>
+      </div>
+      <div>
+        <dt>Exactly one thing to fix</dt>
+        <dd>
+          Never a list. A child given five corrections fixes none of them, so the highest-impact
+          one is chosen by a fixed priority order and the rest wait their turn.
+        </dd>
+      </div>
+      <div>
+        <dt>Recordings stay on your device</dt>
+        <dd>
+          Audio is deleted from the server the moment it has been processed. A first name and an
+          age band is all we keep about a child.
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  {# ------------------------------------------------------------------- faq #}
+  <section>
+    <div class="section-head"><h2>Questions parents ask</h2></div>
+    <div class="faq">
+      <details>
+        <summary>Does my child need an account?</summary>
+        <p class="faq-body">
+          No. The account is yours. You add a profile per child, and they tap their name to
+          practise. Children hold no password and give no email address.
+        </p>
+      </details>
+      <details>
+        <summary>What happens to the recording?</summary>
+        <p class="faq-body">
+          It is transcribed and analysed, then deleted from the server immediately. A playback copy
+          stays in your own browser on your own device. We keep the transcript and the
+          measurements, so the dashboard can show progress over time.
+        </p>
+      </details>
+      <details>
+        <summary>Will it tell my seven year old they sound wrong?</summary>
+        <p class="faq-body">
+          No. A young child's voice is naturally higher and quieter, so pitch and volume are judged
+          against that child's own first three speeches rather than a fixed threshold. Until those
+          exist, both are marked as calibrating and generate no feedback at all.
+        </p>
+      </details>
+      <details>
+        <summary>Is it useful for elocution and debate competitions?</summary>
+        <p class="faq-body">
+          That is what prepared mode is for. The five-box scaffold — opening line, three points,
+          closing line — teaches speech structure, and the notes disappear when the timer starts,
+          exactly as they would on stage.
+        </p>
+      </details>
+      <details>
+        <summary>How accurate is the transcript?</summary>
+        <p class="faq-body">
+          Automatic speech recognition makes mistakes, particularly with names and
+          Indian-language words. The idea scoring is explicitly told to judge the thinking rather
+          than the transcription, and every delivery number comes from the audio itself, not the text.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  {# ------------------------------------------------------------------- cta #}
+  <section class="band">
+    <h2 style="margin-bottom:var(--s3)">Give your child a minute to think.</h2>
+    <p class="lede" style="margin-bottom:var(--s5)">
+      Most children never speak uninterrupted for a full minute. Yours can, as often as they like.
+    </p>
+    <div class="row">
+      <a class="btn btn--lg" href="/signin">Create a free account &rarr;</a>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

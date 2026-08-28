@@ -1,0 +1,9 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+data/coach.db
+data/audio/
+.pytest_cache/
+.DS_Store
+dist/

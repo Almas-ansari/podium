@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Speaking — {{ topic.text }}{% endblock %}
+{% block shell_class %}shell--reading{% endblock %}
+{% block nav %}<a href="/topic">Change topic</a>{% endblock %}
+
+{% block content %}
+<div class="stage center">
+  <p class="label stage-label">Speak about this</p>
+  <h1 class="topic topic--sm" style="margin-left:auto; margin-right:auto">{{ topic.text }}</h1>
+
+  <div id="error" class="notice notice--error hidden" style="text-align:left"></div>
+
+  <div id="idleState" class="flow">
+    <div class="timer">
+      <div class="ring">
+        <svg viewBox="0 0 260 260" aria-hidden="true">
+          <circle class="ring-track" cx="130" cy="130" r="118"></circle>
+        </svg>
+        <div class="ring-face">
+          <div class="ring-time">{{ seconds }}</div>
+          <div class="ring-label label">seconds ready</div>
+        </div>
+      </div>
+    </div>
+    <p class="lede" style="margin:0 auto">
+      Stand up if you can. Take one breath. Then press start and just begin — the first sentence
+      is always the hardest.
+    </p>
+    <div><button class="btn btn--xl" id="startBtn" type="button">Start recording</button></div>
+    <p class="meta">Your microphone only turns on after you press it.</p>
+  </div>
+
+  <div id="liveState" class="flow hidden">
+    <div class="timer">
+      <div class="ring" id="ring">
+        <svg viewBox="0 0 260 260" aria-hidden="true">
+          <circle class="ring-track" cx="130" cy="130" r="118"></circle>
+          <circle class="ring-fill"  cx="130" cy="130" r="118"></circle>
+        </svg>
+        <div class="ring-face">
+          <div class="ring-time">--</div>
+          <div class="ring-label label" id="ringLabel">seconds left</div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="justify-content:center">
+      <span class="recording">Recording</span>
+      <span class="levels" id="levels" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+    </div>
+    <div><button class="btn btn--outline btn--lg" id="stopBtn" type="button">I'm done</button></div>
+  </div>
+
+  <div id="busyState" class="flow hidden">
+    <div class="timer"><div class="spinner" role="status" aria-label="Working"></div></div>
+    <h2>Listening to what you said</h2>
+    <p class="meta" id="status">Working out your ideas and your delivery. A few seconds.</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>window.SPEAK_CONFIG = { topicId: {{ topic.id }}, seconds: {{ seconds }} };</script>
+<script src="/static/audiostore.js"></script>
+<script src="/static/timers.js"></script>
+<script src="/static/record.js"></script>
+{% endblock %}

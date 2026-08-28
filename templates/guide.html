@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+{% block title %}How Podium works{% endblock %}
+
+{% block content %}
+<div class="flow-lg">
+
+  <section class="band">
+    <p class="label" style="margin-bottom:var(--s4)">Guide</p>
+    <h1 class="display" style="margin-bottom:var(--s5)">How Podium works</h1>
+    <p class="lede" style="margin-bottom:var(--s6)">
+      A topic, a timer, and feedback on both halves of speaking well — the ideas and the delivery.
+      Everything on this page applies to every speech your child records.
+    </p>
+    <div class="row">
+      {% if parent and child %}
+      <a class="btn btn--lg" href="/practise">Practise now &rarr;</a>
+      <a class="btn btn--outline btn--lg" href="/parent">See progress</a>
+      {% else %}
+      <a class="btn btn--lg" href="/signin">Start practising &rarr;</a>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="facts">
+    <div class="fact"><b>{{ topic_count }}</b><span>Topics, matched to age</span></div>
+    <div class="fact"><b>7</b><span>Dimensions of idea quality</span></div>
+    <div class="fact"><b>1</b><span>Thing to fix, never a list</span></div>
+    <div class="fact"><b>3</b><span>Speeches to set a voice baseline</span></div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>The two modes</h2>
+      <p class="meta">Pick one at the start of every session. They are judged differently.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="card-num">Impromptu</span>
+        <h3>Think on your feet</h3>
+        <p>
+          The topic appears and the clock starts. Rambling is normal here, so loose structure and
+          thin development are weighted down. What counts is staying on topic, not going blank,
+          and not repeating yourself.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card-num">Prepared</span>
+        <h3>Plan, then deliver</h3>
+        <p>
+          Two, five or ten minutes with a five-box scaffold — opening line, three points, closing
+          line. The notes vanish the moment the speaking timer starts. Here, weak structure and a
+          missing ending are preparation failures worth naming.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>One speech, step by step</h2>
+      <p class="meta">About two minutes, start to finish.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><b>01</b><span>Choose impromptu or prepared, and how long to speak — 60, 90 or 120 seconds</span></div>
+      <div class="step"><b>02</b><span>A topic appears for your child's age band. Ask for a different one as often as you like; none repeats until the pool runs out</span></div>
+      <div class="step"><b>03</b><span>In prepared mode, fill the five note boxes. They disappear when you start speaking</span></div>
+      <div class="step"><b>04</b><span>Press start, wait for the three-two-one, then speak until the ring runs out or you press "I'm done"</span></div>
+      <div class="step"><b>05</b><span>Read the feedback: one strength, one thing to try. The full report sits on the second tab</span></div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="feature-copy">
+      <p class="label" style="margin-bottom:var(--s3)">Half one</p>
+      <h2>What they said</h2>
+      <p>
+        Seven dimensions, scored one to five from the transcript. Weighted differently for
+        prepared and impromptu speeches.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Specificity</strong> — concrete details and named examples, versus abstractions</li>
+        <li><strong>Personal stake</strong> — an experience or opinion they actually own</li>
+        <li><strong>Reasoning</strong> — claims backed with a because, versus asserted and dropped</li>
+        <li><strong>Angle</strong> — their own way in, versus the obvious take</li>
+        <li><strong>Development</strong> — one idea explored, versus five touched and abandoned</li>
+        <li><strong>On topic</strong> and <strong>structure</strong> — did they stay with it, open and close</li>
+      </ul>
+    </div>
+    <div class="feature-art">
+      <p class="label" style="margin-bottom:var(--s3)">Idea dimensions, out of 5</p>
+      <svg class="viz" viewBox="0 0 320 178" role="img" aria-label="Seven idea dimensions scored out of five">
+        {% set dims = [('Specificity', 4), ('Personal stake', 4), ('Reasoning', 3),
+                       ('Angle', 3), ('Development', 2), ('On topic', 5), ('Structure', 4)] %}
+        {% for name, score in dims %}
+        {% set y = loop.index0 * 25 + 6 %}
+        <text class="viz-label" x="0" y="{{ y + 9 }}">{{ name }}</text>
+        <rect class="viz-track" x="112" y="{{ y + 2 }}" width="180" height="8" rx="4"/>
+        <rect class="viz-bar"   x="112" y="{{ y + 2 }}" width="{{ (score / 5 * 180) | round(0) | int }}" height="8" rx="4"/>
+        <text class="viz-value" x="320" y="{{ y + 9 }}" text-anchor="end">{{ score }}</text>
+        {% endfor %}
+      </svg>
+    </div>
+  </section>
+
+  <section class="feature feature--flip">
+    <div class="feature-copy">
+      <p class="label" style="margin-bottom:var(--s3)">Half two</p>
+      <h2>How they said it</h2>
+      <p>
+        Computed from the waveform and the word timings. No language model is asked how someone
+        sounded, so the same recording always gives the same numbers.
+      </p>
+      <ul class="feature-list">
+        <li><strong>Pace</strong> — words a minute. Under 90 is hesitant, over 170 is rushing</li>
+        <li><strong>Pauses</strong> — every gap over 0.7 seconds, and crucially where they cluster</li>
+        <li><strong>Filler words</strong> — um, uh, like, so, basically, matlab, yaani</li>
+        <li><strong>Repetition</strong> — repeated two and three word phrases</li>
+        <li><strong>Vocabulary</strong> — range, and words outside the thousand most common</li>
+        <li><strong>Pitch and volume</strong> — against your child's own baseline, never a fixed chart</li>
+      </ul>
+    </div>
+    <div class="feature-art">
+      <p class="label" style="margin-bottom:var(--s3)">One speech on a time axis</p>
+      <svg class="viz" viewBox="0 0 320 150" role="img" aria-label="Loudness across a speech with pauses and fillers marked">
+        <rect class="viz-pause" x="96" y="12" width="16" height="98"/>
+        <rect class="viz-pause" x="188" y="12" width="10" height="98"/>
+        <path class="viz-fill" d="M8,84 L28,62 L48,74 L68,54 L88,70 L108,96 L128,58 L148,66 L168,50 L188,72 L208,96 L228,64 L248,72 L268,82 L288,92 L308,100 L308,110 L8,110 Z"/>
+        <path class="viz-wave" d="M8,84 L28,62 L48,74 L68,54 L88,70 L108,96 L128,58 L148,66 L168,50 L188,72 L208,96 L228,64 L248,72 L268,82 L288,92 L308,100"/>
+        <line class="viz-axis" x1="8" y1="110" x2="312" y2="110"/>
+        <circle class="viz-dot" cx="36" cy="120" r="3.5"/>
+        <circle class="viz-dot" cx="120" cy="120" r="3.5"/>
+        <circle class="viz-dot" cx="214" cy="120" r="3.5"/>
+        <text class="viz-value" x="8" y="142">0s</text>
+        <text class="viz-value" x="312" y="142" text-anchor="end">90s</text>
+        <text class="viz-value" x="96" y="8">pause</text>
+        <text class="viz-value" x="36" y="142">um</text>
+      </svg>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>What your child sees, and what you see</h2>
+      <p class="meta">Deliberately different.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="card-num">Your child</span>
+        <h3>One strength, one thing to try</h3>
+        <p>
+          Never a score. The improvement is picked by a fixed priority order — running out of
+          content, then rushing, then fillers, then thin development, then missing specifics, then
+          monotone, then trailing volume, then structure — so they always get the one that matters
+          most, and only that one.
+        </p>
+      </article>
+      <article class="card">
+        <span class="card-num">You</span>
+        <h3>Every number, and the trend</h3>
+        <p>
+          The full report per speech and the dashboard across all of them: pace, filler rate,
+          pauses, idea quality, the transcript, and playback of the recording from this device.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Sample topics</h2>
+      <p class="meta">{{ topic_count }} in the bank, filtered by age band.</p>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        {% for pass_no in [1, 2] %}
+          {% for t in showcase %}
+          <article class="topic-card" {% if pass_no == 2 %}aria-hidden="true"{% endif %}>
+            <b>{{ t.text }}</b>
+            <span class="chip">Ages {{ t.age_band }}</span>
+          </article>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Questions</h2></div>
+    <div class="faq">
+      <details>
+        <summary>Why does it say "calibrating" for pitch and volume?</summary>
+        <p class="faq-body">
+          A seven year old's voice is naturally much higher and quieter than a thirteen year
+          old's, so judging either against a fixed threshold would tell every young child they are
+          shrieking. Instead the first three speeches become that child's own baseline. Until
+          those exist, both metrics are marked calibrating and generate no feedback at all.
+        </p>
+      </details>
+      <details>
+        <summary>Why only one thing to work on?</summary>
+        <p class="faq-body">
+          A child given five corrections fixes none of them. The priority order means the biggest
+          problem is always addressed first, and once it improves the next one surfaces on its own.
+        </p>
+      </details>
+      <details>
+        <summary>What happens to the recording?</summary>
+        <p class="faq-body">
+          It is transcribed and analysed, then deleted from the server immediately. A playback copy
+          stays in this browser on this device. The transcript and the measurements are kept so the
+          dashboard can show progress.
+        </p>
+      </details>
+      <details>
+        <summary>Can I add more than one child?</summary>
+        <p class="faq-body">
+          Yes, up to eight. Each profile keeps its own history, streak, topic rotation and voice
+          baseline, so siblings sharing one computer never affect each other's feedback.
+        </p>
+      </details>
+      <details>
+        <summary>Does filler word counting always work?</summary>
+        <p class="faq-body">
+          Speech recognition sometimes drops disfluencies during decoding. When no fillers are
+          detected at all, the report says so rather than reporting a confident zero, because the
+          absence is weak evidence rather than proof.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="band">
+    <h2 style="margin-bottom:var(--s3)">That is the whole thing.</h2>
+    <p class="lede" style="margin-bottom:var(--s5)">
+      The rest is practice. Most children never speak uninterrupted for a full minute.
+    </p>
+    <div class="row">
+      {% if parent and child %}
+      <a class="btn btn--lg" href="/practise">Give {{ child.name }} a topic &rarr;</a>
+      {% else %}
+      <a class="btn btn--lg" href="/signin">Create a free account &rarr;</a>
+      {% endif %}
+    </div>
+  </section>
+
+</div>
+{% endblock %}

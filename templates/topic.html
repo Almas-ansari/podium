@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}{{ topic.text }} — Podium{% endblock %}
+{% block shell_class %}shell--reading{% endblock %}
+
+{% block content %}
+<div class="stage band">
+  <p class="label stage-label">Your topic</p>
+  <h1 class="topic">{{ topic.text }}</h1>
+
+  <div class="stage-meta">
+    <span class="chip chip--accent">{{ 'Impromptu' if mode == 'impromptu' else 'Prepared' }}</span>
+    <span class="chip">{{ topic.category | replace('-', ' ') | title }}</span>
+    <span class="chip">Ages {{ topic.age_band }}</span>
+  </div>
+
+  <form method="get" action="{{ '/prep' if mode == 'prepared' else '/speak' }}" class="controls">
+    <input type="hidden" name="topic_id" value="{{ topic.id }}">
+
+    <div class="control-row">
+      <span class="label">How long will you speak?</span>
+      <div class="segment">
+        {% for choice in timer_choices %}
+        <label>
+          <input type="radio" name="seconds" value="{{ choice }}" {% if seconds == choice %}checked{% endif %}>
+          <span>{{ choice }}s</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if mode == 'prepared' %}
+    <div class="control-row">
+      <span class="label">How long to prepare?</span>
+      <div class="segment">
+        {% for choice in prep_choices %}
+        <label>
+          <input type="radio" name="minutes" value="{{ choice }}" {% if prep == choice %}checked{% endif %}>
+          <span>{{ choice }} min</span>
+        </label>
+        {% endfor %}
+      </div>
+      <p class="meta" style="margin-top:var(--s2)">
+        You will get note boxes to plan with. They disappear the moment you start speaking, just
+        like a real competition.
+      </p>
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <button class="btn btn--xl" type="submit">
+        {{ 'Start preparing' if mode == 'prepared' else "I'm ready to speak" }} &rarr;
+      </button>
+      <button class="btn btn--quiet" type="submit" formaction="/topic" formmethod="get"
+              name="exclude" value="{{ topic.id }}">Different topic</button>
+    </div>
+  </form>
+
+  <p class="meta" style="margin-top:var(--s7)">
+    {{ done }} of {{ total }} {{ mode }} topics done for ages {{ age_band }}. You will not get the
+    same one twice until you have had them all.
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+.venv/
+.git/
+.env
+data/coach.db
+data/audio/
+dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+tests/
+tools/
+docs/
+.DS_Store

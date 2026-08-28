@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% import "_icons.html" as brand %}
+{% block title %}Sign in — Podium{% endblock %}
+{% block shell_class %}shell--narrow{% endblock %}
+
+{% block content %}
+<div class="flow" style="padding-top:var(--s7)">
+  <div>
+    <p class="label" style="margin-bottom:var(--s3)">For a parent or guardian</p>
+    <h1 style="margin-bottom:var(--s3)">Sign in</h1>
+    <p class="lede">
+      The account is yours, not your child's. You add a profile for each child, and their practice
+      history follows that profile onto any device you sign in on.
+    </p>
+  </div>
+
+  {% if request.query_params.get('deleted') %}
+  <div class="notice" id="wipe-notice">Everything has been deleted and you have been signed out.</div>
+  {% endif %}
+  {% if error == 'failed' %}
+  <div class="notice notice--error">Sign-in did not complete. Please try again.</div>
+  {% elif error == 'not_configured' %}
+  <div class="notice notice--warn">Google sign-in is not configured on this server yet.</div>
+  {% endif %}
+
+  {% if google_ready %}
+  <div>
+    <a class="btn btn--outline btn--lg btn--block" href="/auth/google">
+      {{ brand.google() }} Continue with Google
+    </a>
+    <p class="meta" style="margin-top:var(--s3)">
+      We receive your name, email and profile picture from Google. Nothing about your child is
+      shared with Google.
+    </p>
+  </div>
+  {% elif dev_login %}
+  <div class="notice notice--warn">
+    <strong>Google sign-in is not set up.</strong> Add <code>GOOGLE_CLIENT_ID</code> and
+    <code>GOOGLE_CLIENT_SECRET</code> to <code>.env</code>. The local sign-in below only exists
+    while <code>ALLOW_DEV_LOGIN=true</code>.
+  </div>
+  <form method="post" action="/auth/dev">
+    <label class="field">
+      <span>Your email</span>
+      <input class="input" type="text" name="email" value="parent@example.com" required>
+    </label>
+    <button class="btn btn--lg btn--block" type="submit">Continue (local only)</button>
+  </form>
+  {% else %}
+  <div class="notice notice--warn">
+    <strong>Sign-in is not configured.</strong> Add <code>GOOGLE_CLIENT_ID</code> and
+    <code>GOOGLE_CLIENT_SECRET</code> to <code>.env</code> and restart.
+  </div>
+  {% endif %}
+
+  <p class="meta">
+    By signing in you confirm you are the parent or guardian of the children you add. You can
+    delete everything at any time.
+  </p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% if request.query_params.get('wipe') %}
+<script src="/static/audiostore.js"></script>
+<script>
+  /* The server has cleared its side. Recordings live in this browser, so only
+     this page can remove them. */
+  if (window.AudioStore) {
+    window.AudioStore.clear().then(function () {
+      var n = document.getElementById("wipe-notice");
+      if (n) n.textContent = "Everything has been deleted, including the recordings stored in "
+        + "this browser, and you have been signed out.";
+    });
+  }
+</script>
+{% endif %}
+{% endblock %}

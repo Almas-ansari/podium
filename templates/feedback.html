@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}How that went — Podium{% endblock %}
+{% block shell_class %}shell--wide{% endblock %}
+{% block nav %}<a href="/topic">Another topic</a><a href="/parent">Progress</a>{% endblock %}
+
+{% block content %}
+<div class="flow-lg">
+  <section class="band">
+    <p class="label" style="margin-bottom:var(--s3)">You spoke about</p>
+    <h1 class="topic topic--sm" style="margin-bottom:0">{{ session['topic_text'] }}</h1>
+  </section>
+
+  {# Two views of one session. Pure CSS: the radios precede the panels so
+     :checked can select a sibling. #}
+  <div>
+    <input class="hidden" type="radio" name="view" id="view-simple" checked>
+    <input class="hidden" type="radio" name="view" id="view-full">
+
+    <div class="tabs">
+      <label for="view-simple">Your feedback</label>
+      <label for="view-full">Full report</label>
+    </div>
+
+    <div class="tab-panel tab-panel--simple">
+      <div class="verdict verdict--win">
+        <div class="verdict-head">
+          <span class="label">What you did well</span>
+          <span class="chip">{{ 'Thinking' if fb.get('win_half') == 'thinking' else 'Speaking' }}</span>
+        </div>
+        <p class="verdict-text">{{ fb.win }}</p>
+      </div>
+
+      <div class="verdict verdict--tip">
+        <div class="verdict-head">
+          <span class="label">One thing to try next time</span>
+          <span class="chip">{{ 'Thinking' if fb.get('tip_half') == 'thinking' else 'Speaking' }}</span>
+        </div>
+        <p class="verdict-text">{{ fb.tip }}</p>
+      </div>
+
+      <div class="verdict" style="border-bottom:none">
+        <div class="verdict-head"><span class="label">Your progress</span></div>
+        <div class="streak">
+          <span class="streak-item">
+            <b class="num">{{ badges.get('sessions', 0) }}</b>
+            <span class="meta">speech{{ 'es' if badges.get('sessions', 0) != 1 }}</span>
+          </span>
+          {% if badges.get('streak_days', 0) > 1 %}
+          <span class="streak-item">
+            <b class="num">{{ badges.streak_days }}</b>
+            <span class="meta">days in a row</span>
+          </span>
+          {% endif %}
+          <span class="streak-item">
+            <b class="num">{{ badges.get('topics', 0) }}</b>
+            <span class="meta">topic{{ 's' if badges.get('topics', 0) != 1 }} explored</span>
+          </span>
+        </div>
+      </div>
+
+      {% if fb.get('calibrating') %}
+      <div class="notice" style="margin-bottom:var(--s5)">
+        Still learning what your normal speaking voice sounds like. After three speeches,
+        Podium can tell when your voice is flatter or quieter <em>than usual for you</em>,
+        which is the only fair way to judge it.
+      </div>
+      {% endif %}
+
+      <div class="row">
+        <a class="btn btn--lg" href="/topic">Go again with a new topic &rarr;</a>
+        <a class="btn btn--quiet" href="/">Change age or mode</a>
+      </div>
+    </div>
+
+    <div class="tab-panel tab-panel--full">
+      <div class="flow">
+        <p class="meta">
+          Everything measured for this one speech, each number set against
+          {{ child.name if child else 'this child' }}'s own running average.
+        </p>
+        {% include "_report.html" %}
+        <div class="row">
+          <a class="btn btn--lg" href="/topic">Go again &rarr;</a>
+          <a class="btn btn--quiet" href="/parent">All speeches</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/audiostore.js"></script>
+<script src="/static/playback.js"></script>
+{% endblock %}

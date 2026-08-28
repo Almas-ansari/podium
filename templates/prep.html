@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Preparing — {{ topic.text }}{% endblock %}
+{% block shell_class %}shell--reading{% endblock %}
+{% block nav %}<a href="/topic">Change topic</a>{% endblock %}
+
+{% block content %}
+<div class="stage">
+  <p class="label stage-label">Planning time · then {{ seconds }} seconds of speaking</p>
+  <h2 class="topic topic--sm">{{ topic.text }}</h2>
+
+  <div class="timer" style="margin-bottom:var(--s7)">
+    <div class="ring" id="ring">
+      <svg viewBox="0 0 260 260" aria-hidden="true">
+        <circle class="ring-track" cx="130" cy="130" r="118"></circle>
+        <circle class="ring-fill"  cx="130" cy="130" r="118"></circle>
+      </svg>
+      <div class="ring-face">
+        <div class="ring-time">--</div>
+        <div class="ring-label label">Prep time left</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Plan your speech</h2>
+    <p class="meta">
+      A few words in each box, not full sentences. <strong>These notes vanish when you start
+      speaking.</strong>
+    </p>
+  </div>
+
+  <div class="scaffold">
+    <div class="slot">
+      <div class="slot-label">Opening line</div>
+      <textarea rows="1" placeholder="How will you grab attention in your first sentence?"></textarea>
+    </div>
+    <div class="slot">
+      <div class="slot-label">Point 1</div>
+      <textarea rows="1" placeholder="Your first idea, and one example for it"></textarea>
+    </div>
+    <div class="slot">
+      <div class="slot-label">Point 2</div>
+      <textarea rows="1" placeholder="Your second idea"></textarea>
+    </div>
+    <div class="slot">
+      <div class="slot-label">Point 3</div>
+      <textarea rows="1" placeholder="Your third idea"></textarea>
+    </div>
+    <div class="slot">
+      <div class="slot-label">Closing line</div>
+      <textarea rows="1" placeholder="The last thing you want everyone to remember"></textarea>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:var(--s6)">
+    <a class="btn btn--xl" href="/speak?topic_id={{ topic.id }}&seconds={{ seconds }}">
+      Start speaking now &rarr;
+    </a>
+    <span class="meta">You do not have to use all the time.</span>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/timers.js"></script>
+<script>
+  /* Notes live only in this page. They are never submitted, stored or transmitted. */
+  (function () {
+    var next = "/speak?topic_id={{ topic.id }}&seconds={{ seconds }}";
+    window.Countdown(document.getElementById("ring"), {{ minutes }} * 60, {
+      onDone: function () { window.location.href = next; }
+    }).start();
+  })();
+</script>
+{% endblock %}

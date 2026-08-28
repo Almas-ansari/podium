@@ -1,0 +1,213 @@
+{# Shared session report: the Full report tab on the feedback screen, and the
+   dashboard's session page. One source so the two cannot drift apart. #}
+{% set pace = metrics.get('pace', {}) %}
+{% set fill = metrics.get('fillers', {}) %}
+{% set paus = metrics.get('pauses', {}) %}
+{% set rep  = metrics.get('repetition', {}) %}
+{% set voc  = metrics.get('vocabulary', {}) %}
+{% set comp = metrics.get('completion', {}) %}
+{% set norm = metrics.get('normalised', {}) %}
+{% set aud  = metrics.get('audio', {}) %}
+
+<div class="dash">
+
+  {# ---- summary first, so the gist arrives before the tiles ---------- #}
+  {% if summary %}
+  <div class="col-12">
+    <div class="verdict-band">
+      <p class="label" style="margin-bottom:var(--s2)">This speech at a glance</p>
+      <p class="headline-text">{{ summary.delivery }} {{ summary.detail }}</p>
+      {% if summary.thinking %}
+      <p class="meta" style="margin-top:var(--s3)">{{ summary.thinking }}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if comparison %}
+  <div class="col-12">
+    <div class="section-head">
+      <h2>Against their usual</h2>
+      <p class="meta">
+        {% if comparison[0].average is none %}
+          The first speech, so there is nothing to compare yet.
+        {% else %}
+          Speech #{{ session_number }}, with the average of their other speeches underneath.
+        {% endif %}
+      </p>
+    </div>
+    <dl class="compare">
+      {% for row in comparison %}
+      <div class="compare-item compare-item--{{ row.direction }}">
+        <dt>{{ row.label }}</dt>
+        <dd>{{ row.value }}{{ row.unit }}</dd>
+        <small>
+          {% if row.average is none %}first speech
+          {% elif row.direction == 'steady' %}about the same as usual
+          {% else %}usual {{ row.average | round(1) }}{{ row.unit }}
+            <b>{{ '+' if row.delta > 0 else '' }}{{ row.delta | round(1) }}</b>
+          {% endif %}
+        </small>
+      </div>
+      {% endfor %}
+    </dl>
+  </div>
+  {% endif %}
+
+  {# ---- the shape of the speech, beside the moment-by-moment read ---- #}
+  <div class="col-8"><div class="tile-panel">
+    {{ speech_map | safe }}
+    <p class="meta" style="margin-top:var(--s3)">
+      Loudness over the whole speech, with every long pause and filler word marked.
+    </p>
+  </div></div>
+
+  <div class="col-4"><div class="tile-panel">
+    <div class="section-head"><h2>Beginning, middle, end</h2></div>
+    <dl class="readout" style="border:none">
+      <div class="readout-item">
+        <dt>Opening</dt>
+        <dd>
+          {% if paus.get('weak_opening') %}Hesitant — {{ paus.get('in_first_15s') }} long pauses in the first 15 seconds
+          {% elif paus.get('in_first_15s', 0) > 0 %}{{ paus.get('in_first_15s') }} pause{{ 's' if paus.get('in_first_15s') != 1 }} early on
+          {% else %}Straight in, no hesitation{% endif %}
+        </dd>
+      </div>
+      <div class="readout-item">
+        <dt>Middle</dt>
+        <dd>
+          {% if paus.get('went_blank') %}Went blank — longest silence {{ paus.get('longest') }}s
+          {% elif rep.get('heavy') %}Repeated a few phrases
+          {% else %}Kept going without stalling{% endif %}
+        </dd>
+      </div>
+      <div class="readout-item">
+        <dt>Ending</dt>
+        <dd>
+          {% if comp.get('ran_out') %}Ran out early — used {{ (comp.get('coverage', 0) * 100) | round(0) | int }}% of the time
+          {% elif norm.get('volume', {}).get('trails_off') %}Trailed off — voice dropped {{ norm.get('volume', {}).get('final_third_drop_pct') }}%
+          {% elif ideas.get('available') and not ideas.get('has_ending') %}Just stopped, no closing line
+          {% else %}Finished properly{% endif %}
+        </dd>
+      </div>
+    </dl>
+  </div></div>
+
+  {% if pace_segments %}
+  <div class="col-6"><div class="tile-panel">
+    {{ pace_segments | safe }}
+    <p class="meta" style="margin-top:var(--s3)">
+      Shaded band is 100–150 wpm. One fast slice means one rushed section, not a rushed speech.
+    </p>
+  </div></div>
+  {% endif %}
+
+  <div class="col-6"><div class="tile-panel">
+    <div class="section-head">
+      <h2>Ideas, scored</h2>
+      {% if ideas.get('available') %}
+      <p class="meta">
+        Overall <strong>{{ ideas.overall.out_of_100 }}/100</strong>, weighted for a
+        {{ ideas.overall.mode_weighting }} speech.
+      </p>
+      {% endif %}
+    </div>
+    {% if ideas.get('available') %}
+      {{ dimensions | safe }}
+      {% if ideas.get('strongest_moment') %}
+      <p class="meta" style="margin-top:var(--s4)"><strong>Strongest moment:</strong> {{ ideas.strongest_moment }}</p>
+      {% endif %}
+      {% if ideas.get('biggest_opening') %}
+      <p class="meta"><strong>Biggest missed opportunity:</strong> {{ ideas.biggest_opening }}</p>
+      {% endif %}
+    {% else %}
+      <p class="meta">Idea scoring was unavailable, so this session got delivery-only feedback.</p>
+    {% endif %}
+  </div></div>
+
+  <div class="col-12">
+    <div class="section-head">
+      <h2>Delivery, measured</h2>
+      <p class="meta">Computed from the audio and word timings. Never estimated by a language model.</p>
+    </div>
+    <dl class="metrics">
+      <div class="metric">
+        <dt>Pace</dt><dd>{{ pace.get('wpm', '—') }} wpm</dd>
+        <small>{{ pace.get('band', '') }} · {{ pace.get('word_count', 0) }} words</small>
+      </div>
+      <div class="metric">
+        <dt>Filler words</dt><dd>{{ fill.get('total', 0) }}</dd>
+        <small>
+          {{ fill.get('per_minute', 0) }}/min
+          {%- if fill.get('breakdown') %} ·
+            {% for word, count in fill.breakdown.items() %}{{ word }} ×{{ count }}{{ ', ' if not loop.last }}{% endfor %}
+          {%- elif not fill.get('reliable') %} · none detected, may have been dropped{% endif %}
+        </small>
+      </div>
+      <div class="metric">
+        <dt>Pauses over 0.7s</dt><dd>{{ paus.get('count', 0) }}</dd>
+        <small>longest {{ paus.get('longest', 0) }}s · {{ paus.get('in_first_15s', 0) }} in first 15s</small>
+      </div>
+      <div class="metric">
+        <dt>Time used</dt><dd>{{ (comp.get('coverage', 0) * 100) | round(0) | int }}%</dd>
+        <small>{{ comp.get('spoken_until_s', 0) }}s of {{ comp.get('target_seconds', 0) }}s</small>
+      </div>
+      <div class="metric">
+        <dt>Repeated phrases</dt><dd>{{ rep.get('repeated_bigram_types', 0) }}</dd>
+        <small>
+          {% if rep.get('trigrams') %}{% for phrase, count in rep.trigrams.items() %}“{{ phrase }}” ×{{ count }}{{ ', ' if not loop.last }}{% endfor %}
+          {% elif rep.get('bigrams') %}{% for phrase, count in rep.bigrams.items() %}“{{ phrase }}” ×{{ count }}{{ ', ' if not loop.last }}{% endfor %}
+          {% else %}none{% endif %}
+        </small>
+      </div>
+      <div class="metric">
+        <dt>Vocabulary range</dt><dd>{{ voc.get('ttr', 0) }}</dd>
+        <small>
+          {{ voc.get('rare_count', 0) }} less common
+          {%- if voc.get('examples') %}: {{ voc.examples[:4] | join(', ') }}{% endif %}
+        </small>
+      </div>
+      <div class="metric">
+        <dt>Pitch variation</dt>
+        {% if norm.get('calibrating') %}
+        <dd>Calibrating</dd><small>{{ norm.get('sessions_used', 0) }} of {{ norm.get('sessions_needed', 3) }} baseline speeches</small>
+        {% else %}
+        <dd>{{ norm.get('pitch', {}).get('status', '—') | title }}</dd>
+        <small>{{ norm.get('pitch', {}).get('ratio', '—') }}× this child's baseline</small>
+        {% endif %}
+      </div>
+      <div class="metric">
+        <dt>Volume</dt>
+        {% if norm.get('calibrating') %}
+        <dd>Calibrating</dd><small>Judged against your child only</small>
+        {% else %}
+        <dd>{{ norm.get('volume', {}).get('status', '—') | title }}</dd>
+        <small>drops {{ norm.get('volume', {}).get('final_third_drop_pct', 0) }}% in the final third</small>
+        {% endif %}
+      </div>
+      <div class="metric">
+        <dt>Speech vs silence</dt>
+        <dd>{% if aud.get('speech', {}).get('available') %}{{ (aud.speech.ratio * 100) | round(0) | int }}%{% else %}—{% endif %}</dd>
+        <small>of the clip carried speech</small>
+      </div>
+    </dl>
+  </div>
+
+  <div class="col-7"><div class="tile-panel">
+    <div class="section-head">
+      <h2>Transcript</h2>
+      <p class="meta">
+        Speech recognition, so expect errors with names and Indian-language words. The idea
+        scoring judges the thinking, not the transcription.
+      </p>
+    </div>
+    <div class="transcript scroll-y">{{ session['transcript'] }}</div>
+  </div></div>
+
+  <div class="col-5"><div class="tile-panel" id="playback" data-session-id="{{ session['id'] }}">
+    <div class="section-head"><h2>Playback</h2></div>
+    <audio controls preload="metadata" hidden></audio>
+    <p class="meta playback-status">Looking for this recording on this device…</p>
+  </div></div>
+
+</div>

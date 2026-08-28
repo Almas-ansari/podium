@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Speech report — Podium{% endblock %}
+{% block shell_class %}shell--wide{% endblock %}
+{% block nav %}<a href="/parent">Back to progress</a>{% endblock %}
+
+{% block content %}
+<div class="flow-lg">
+  <section>
+    <p class="label" style="margin-bottom:var(--s3)">
+      {{ session['mode'] | title }} · ages {{ session['age_band'] }} · {{ session['created_at'][:10] }}
+    </p>
+    <h1 class="topic topic--sm" style="margin-bottom:0">{{ session['topic_text'] }}</h1>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>What your child was shown</h2>
+      <p class="meta">
+        Chosen from a fixed priority order: running out of content, then rushing, then fillers,
+        then thin development, then missing specifics, then monotone, then trailing volume, then
+        structure. This session's pick was
+        <strong>{{ feedback.get('focus_key', '—') | replace('_', ' ') }}</strong>.
+      </p>
+    </div>
+    <dl class="readout">
+      <div class="readout-item">
+        <dt>Did well</dt>
+        <dd>{{ feedback.get('win') }}</dd>
+      </div>
+      <div class="readout-item">
+        <dt>Try next</dt>
+        <dd>{{ feedback.get('tip') }}</dd>
+      </div>
+    </dl>
+  </section>
+
+  {% include "_report.html" %}
+
+  <div class="row">
+    <a class="btn btn--outline" href="/parent">&larr; Back to progress</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/audiostore.js"></script>
+<script src="/static/playback.js"></script>
+{% endblock %}

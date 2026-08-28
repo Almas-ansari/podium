@@ -1,0 +1,24 @@
+# One-click deploy from GitHub: render.com/deploy or New > Blueprint.
+# Free tier sleeps after ~15 minutes idle. Pair it with the static export
+# (tools/export_static.py) so visitors never wait on the cold start.
+services:
+  - type: web
+    name: podium
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: ALLOW_DEV_LOGIN
+        value: "false"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false          # set in the dashboard, never in the repo
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: DATABASE_URL
+        sync: false          # a free Neon connection string

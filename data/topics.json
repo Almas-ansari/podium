@@ -1,0 +1,3220 @@
+[
+ {
+  "id": 1,
+  "text": "My favourite thing about school",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 2,
+  "text": "What I do in the school playground",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 3,
+  "text": "My best friend at school",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 4,
+  "text": "The best day I had at school",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 5,
+  "text": "What I keep in my school bag",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 6,
+  "text": "My favourite teacher and why",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 7,
+  "text": "The game we play during lunch break",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 8,
+  "text": "What I want to learn this year",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 9,
+  "text": "My school uniform",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 10,
+  "text": "The morning assembly at my school",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 11,
+  "text": "What I like about my classroom",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 12,
+  "text": "Reading time at school",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 13,
+  "text": "My pencil box",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 14,
+  "text": "A rule at school I think is fair",
+  "age_band": "6-8",
+  "category": "school",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 15,
+  "text": "My family",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 16,
+  "text": "What my mother does that makes me happy",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 17,
+  "text": "A game I play with my brother or sister",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 18,
+  "text": "My grandparents",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 19,
+  "text": "Sunday at my house",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 20,
+  "text": "The person in my family who makes me laugh",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 21,
+  "text": "What we do together in the evening",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 22,
+  "text": "My favourite family photo",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 23,
+  "text": "Helping at home",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 24,
+  "text": "A trip I took with my family",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 25,
+  "text": "A day when my family laughed a lot",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 26,
+  "text": "My cousin",
+  "age_band": "6-8",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 27,
+  "text": "Diwali at my house",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 28,
+  "text": "My favourite festival",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 29,
+  "text": "How we celebrate Holi",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 30,
+  "text": "The best part of Eid",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 31,
+  "text": "Making rangoli",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 32,
+  "text": "Christmas and what I like about it",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 33,
+  "text": "Raksha Bandhan with my brother or sister",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 34,
+  "text": "The sweets we eat at festivals",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 35,
+  "text": "New clothes for a festival",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 36,
+  "text": "Lighting diyas",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 37,
+  "text": "The festival lights in my street",
+  "age_band": "6-8",
+  "category": "festivals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 38,
+  "text": "My favourite animal",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 39,
+  "text": "If I had a pet dog",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 40,
+  "text": "The elephant",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 41,
+  "text": "Birds I see near my house",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 42,
+  "text": "Why the peacock is beautiful",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 43,
+  "text": "A cat I know",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 44,
+  "text": "Animals at the zoo",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 45,
+  "text": "The cow",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 46,
+  "text": "Why we should be kind to street dogs",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 47,
+  "text": "Fish in the sea",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 48,
+  "text": "Butterflies",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 49,
+  "text": "Why I like or fear dogs",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 50,
+  "text": "The parrot",
+  "age_band": "6-8",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 51,
+  "text": "My favourite food",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 52,
+  "text": "The best thing my mother cooks",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 53,
+  "text": "Mangoes",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 54,
+  "text": "Why I like ice cream",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 55,
+  "text": "Food I do not like",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 56,
+  "text": "What I eat in my tiffin",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 57,
+  "text": "Chocolate",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 58,
+  "text": "A meal we eat on special days",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 59,
+  "text": "Fruits are good for us",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 60,
+  "text": "Helping in the kitchen",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 61,
+  "text": "Curd rice, roti or dosa: what I eat most",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 62,
+  "text": "A snack I can make myself",
+  "age_band": "6-8",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 63,
+  "text": "If I could fly",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 64,
+  "text": "If I had a magic pencil",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 65,
+  "text": "A day when I become very small",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 66,
+  "text": "My own superhero",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 67,
+  "text": "If toys could talk",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 68,
+  "text": "A house made of sweets",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 69,
+  "text": "If I met an alien",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 70,
+  "text": "The best dream I remember",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 71,
+  "text": "If I could talk to animals",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 72,
+  "text": "A hidden door in my school",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 73,
+  "text": "If my school bag could carry me",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 74,
+  "text": "A friendly monster",
+  "age_band": "6-8",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 75,
+  "text": "Homework is good or not good",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 76,
+  "text": "Why we should not waste water",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 77,
+  "text": "Why sharing is important",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 78,
+  "text": "Rain is the best weather",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 79,
+  "text": "Why we should keep our class clean",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 80,
+  "text": "Morning is better than night",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 81,
+  "text": "Why we should say thank you",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 82,
+  "text": "Playing outside is better than watching TV",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 83,
+  "text": "Why we should not be scared of the dark",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 84,
+  "text": "Why we should help our friends",
+  "age_band": "6-8",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 85,
+  "text": "Would you rather have a pet lion or a pet monkey",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 86,
+  "text": "Would you rather be very tall or very fast",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 87,
+  "text": "Would you rather eat only sweets or only fruits",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 88,
+  "text": "Would you rather live near the sea or in the mountains",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 89,
+  "text": "Would you rather have summer all year or rain all year",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 90,
+  "text": "Would you rather be able to fly or be invisible",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 91,
+  "text": "Would you rather have a robot friend or a real puppy",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 92,
+  "text": "Would you rather draw or sing",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 93,
+  "text": "Would you rather have wings or a tail",
+  "age_band": "6-8",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 94,
+  "text": "My favourite colour",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 95,
+  "text": "My favourite cartoon",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 96,
+  "text": "My favourite game",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 97,
+  "text": "My favourite place",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 98,
+  "text": "My favourite song",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 99,
+  "text": "My favourite toy",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 100,
+  "text": "My favourite season",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 101,
+  "text": "My favourite day of the week",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 102,
+  "text": "My favourite storybook",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 103,
+  "text": "My favourite fruit",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 104,
+  "text": "My favourite festival food",
+  "age_band": "6-8",
+  "category": "my-favourite",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 105,
+  "text": "If I could go anywhere tomorrow",
+  "age_band": "6-8",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 106,
+  "text": "If I were the teacher for one day",
+  "age_band": "6-8",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 107,
+  "text": "If I could plant a magic tree",
+  "age_band": "6-8",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 108,
+  "text": "If I could meet any cartoon character",
+  "age_band": "6-8",
+  "category": "if-I-could",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 109,
+  "text": "If I could keep one wish",
+  "age_band": "6-8",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 110,
+  "text": "If I could change one rule at home",
+  "age_band": "6-8",
+  "category": "if-I-could",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 111,
+  "text": "If I could ride a dinosaur",
+  "age_band": "6-8",
+  "category": "if-I-could",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 112,
+  "text": "If I could be an animal for a day",
+  "age_band": "6-8",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 113,
+  "text": "The best thing about my school",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 114,
+  "text": "A subject I used to find hard and now enjoy",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 115,
+  "text": "What makes a good teacher",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 116,
+  "text": "Should school days be shorter",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 117,
+  "text": "The most useful thing I have learned in school",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 118,
+  "text": "A school trip I will not forget",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 119,
+  "text": "Why the library matters",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 120,
+  "text": "What I would change about my school",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 121,
+  "text": "Sports day at my school",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 122,
+  "text": "Being the class monitor",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 123,
+  "text": "Group projects: good or bad",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 124,
+  "text": "The first day at a new school",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 125,
+  "text": "A mistake at school that taught me something",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 126,
+  "text": "Why break time matters",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 127,
+  "text": "Learning to work with someone I disagree with",
+  "age_band": "9-11",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 128,
+  "text": "Something my grandparents taught me",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 129,
+  "text": "The person in my family I admire most",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 130,
+  "text": "A family tradition we keep",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 131,
+  "text": "What being an elder or younger sibling is really like",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 132,
+  "text": "A time my family surprised me",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 133,
+  "text": "The best advice anyone at home has given me",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 134,
+  "text": "How my family spends a holiday",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 135,
+  "text": "A story my parents tell about when they were young",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 136,
+  "text": "Why family dinners matter",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 137,
+  "text": "Looking after a younger cousin",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 138,
+  "text": "Something I do better than my parents",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 139,
+  "text": "A promise I kept at home",
+  "age_band": "9-11",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 140,
+  "text": "The Diwali I remember best",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 141,
+  "text": "Why we celebrate Independence Day",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 142,
+  "text": "Republic Day and what it means to me",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 143,
+  "text": "Festivals bring people together",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 144,
+  "text": "How my city changes during festival season",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 145,
+  "text": "Celebrating a festival that is not my own",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 146,
+  "text": "Why crackers should be quieter",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 147,
+  "text": "Preparing for Ganesh Chaturthi",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 148,
+  "text": "Onam, Pongal or Bihu: a harvest festival I know",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 149,
+  "text": "Gandhi Jayanti",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 150,
+  "text": "Children's Day and Pandit Nehru",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 151,
+  "text": "Navratri nights",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 152,
+  "text": "A festival I would like to celebrate in another country",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 153,
+  "text": "Why I look forward to the festival holidays",
+  "age_band": "9-11",
+  "category": "festivals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 154,
+  "text": "Why street animals need our help",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 155,
+  "text": "The tiger and why India protects it",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 156,
+  "text": "Should zoos exist",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 157,
+  "text": "An animal I would like to study",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 158,
+  "text": "My pet and what it taught me",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 159,
+  "text": "Why bees matter more than we think",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 160,
+  "text": "Animals are smarter than we assume",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 161,
+  "text": "The elephant in Indian life",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 162,
+  "text": "What I would do if I found an injured bird",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 163,
+  "text": "A wild animal I have seen up close",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 164,
+  "text": "Why forests matter to animals and to us",
+  "age_band": "9-11",
+  "category": "animals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 165,
+  "text": "The best meal I have ever eaten",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 166,
+  "text": "Street food in my city",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 167,
+  "text": "Why wasting food is wrong",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 168,
+  "text": "A dish from my region and how it is made",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 169,
+  "text": "Junk food and school canteens",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 170,
+  "text": "Cooking something for the first time",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 171,
+  "text": "Food tastes better when you share it",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 172,
+  "text": "Why breakfast should not be skipped",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 173,
+  "text": "Why my grandmother's cooking is different",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 174,
+  "text": "A food from another state I want to try",
+  "age_band": "9-11",
+  "category": "food",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 175,
+  "text": "If I woke up on another planet",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 176,
+  "text": "A day when everyone could read minds",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 177,
+  "text": "Inventing something my school needs",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 178,
+  "text": "If I could travel one hundred years forward",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 179,
+  "text": "A world without electricity for one week",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 180,
+  "text": "The story behind an old photograph",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 181,
+  "text": "If books came alive at night",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 182,
+  "text": "Designing my own city",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 183,
+  "text": "If I could speak every language",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 184,
+  "text": "If my city had no traffic",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 185,
+  "text": "A machine that fixes one problem",
+  "age_band": "9-11",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 186,
+  "text": "Should children have mobile phones",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 187,
+  "text": "Homework should be replaced with reading",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 188,
+  "text": "Is winning the most important thing in sport",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 189,
+  "text": "Why kindness is a skill, not a feeling",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 190,
+  "text": "Should exams be scrapped",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 191,
+  "text": "Screen time: who should decide",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 192,
+  "text": "Why we should all learn to swim",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 193,
+  "text": "Cleanliness is everyone's job, not the sweeper's",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 194,
+  "text": "Should uniforms be compulsory",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 195,
+  "text": "Saving water starts at home",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 196,
+  "text": "Why reading is not boring",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 197,
+  "text": "Pocket money should be earned",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 198,
+  "text": "Should children help with housework",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 199,
+  "text": "Why plastic bags should go",
+  "age_band": "9-11",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 200,
+  "text": "Would you rather be the smartest or the kindest person in the room",
+  "age_band": "9-11",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 201,
+  "text": "Would you rather live in a village or a city",
+  "age_band": "9-11",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 202,
+  "text": "Would you rather lose the internet or lose television",
+  "age_band": "9-11",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 203,
+  "text": "Would you rather always speak the truth or always be believed",
+  "age_band": "9-11",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 204,
+  "text": "Would you rather have one close friend or twenty ordinary ones",
+  "age_band": "9-11",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 205,
+  "text": "Would you rather travel to space or to the deep sea",
+  "age_band": "9-11",
+  "category": "would-you-rather",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 206,
+  "text": "Would you rather be famous now or respected later",
+  "age_band": "9-11",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 207,
+  "text": "Would you rather read minds or predict the weather",
+  "age_band": "9-11",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 208,
+  "text": "My favourite book and why it stayed with me",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 209,
+  "text": "My favourite sport",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 210,
+  "text": "My favourite place in my city",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 211,
+  "text": "My favourite Indian food",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 212,
+  "text": "My favourite time of the day",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 213,
+  "text": "My favourite hobby",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 214,
+  "text": "My favourite person from history",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 215,
+  "text": "My favourite film and one scene from it",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 216,
+  "text": "My favourite thing to do in the holidays",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 217,
+  "text": "My favourite memory from last year",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 218,
+  "text": "My favourite thing to do alone",
+  "age_band": "9-11",
+  "category": "my-favourite",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 219,
+  "text": "If I could fix one problem in my neighbourhood",
+  "age_band": "9-11",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 220,
+  "text": "If I were the principal for a week",
+  "age_band": "9-11",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 221,
+  "text": "If I could meet any sportsperson",
+  "age_band": "9-11",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 222,
+  "text": "If I could bring back one thing from the past",
+  "age_band": "9-11",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 223,
+  "text": "If I could give every child in India one thing",
+  "age_band": "9-11",
+  "category": "if-I-could",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 224,
+  "text": "If I could learn any skill instantly",
+  "age_band": "9-11",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 225,
+  "text": "If I could send a message to myself in ten years",
+  "age_band": "9-11",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 226,
+  "text": "If I could invite three people to dinner",
+  "age_band": "9-11",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 227,
+  "text": "What school teaches you that no exam measures",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 228,
+  "text": "Should students grade their teachers",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 229,
+  "text": "The pressure of board exams",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 230,
+  "text": "Why public speaking should be taught in every school",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 231,
+  "text": "Competition between friends",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 232,
+  "text": "Should schools teach personal finance",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 233,
+  "text": "The subject I would remove from the timetable",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 234,
+  "text": "What I would tell a nervous new student",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 235,
+  "text": "Are marks a fair measure of a student",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 236,
+  "text": "Learning outside the classroom",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 237,
+  "text": "Why attendance rules exist",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 238,
+  "text": "What I would say at my own farewell",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 239,
+  "text": "Why students should run more of the school",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 240,
+  "text": "The teacher who changed my mind about something",
+  "age_band": "12-14",
+  "category": "school",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 241,
+  "text": "The hardest conversation I have had at home",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 242,
+  "text": "How my parents' childhood differed from mine",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 243,
+  "text": "Independence and trust between parents and teenagers",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 244,
+  "text": "A family member who changed how I think",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 245,
+  "text": "Should teenagers get a say in family decisions",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 246,
+  "text": "What I have learned from an argument at home",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 247,
+  "text": "Growing up in a joint family",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 248,
+  "text": "The expectations placed on the eldest child",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 249,
+  "text": "Privacy at home: where is the line",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 250,
+  "text": "What I want my family to understand about me",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 251,
+  "text": "The value of an argument you lose",
+  "age_band": "12-14",
+  "category": "family",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 252,
+  "text": "Independence Day: freedom is a responsibility",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 253,
+  "text": "Republic Day and the promise of the Constitution",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 254,
+  "text": "Do festivals still mean what they used to",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 255,
+  "text": "Celebrating festivals without harming the environment",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 256,
+  "text": "Unity in diversity is not just a slogan",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 257,
+  "text": "Gandhi Jayanti: is non-violence still practical",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 258,
+  "text": "Teachers' Day and Dr Radhakrishnan",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 259,
+  "text": "What festivals teach us about community",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 260,
+  "text": "The commercialisation of festivals",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 261,
+  "text": "A festival tradition worth protecting",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 262,
+  "text": "A national day that deserves more attention",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 263,
+  "text": "Should festivals get public holidays",
+  "age_band": "12-14",
+  "category": "festivals",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 264,
+  "text": "Wildlife conservation in India: are we doing enough",
+  "age_band": "12-14",
+  "category": "animals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 265,
+  "text": "Should animals be used for entertainment",
+  "age_band": "12-14",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 266,
+  "text": "Project Tiger and what it achieved",
+  "age_band": "12-14",
+  "category": "animals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 267,
+  "text": "Vegetarianism and animal welfare",
+  "age_band": "12-14",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 268,
+  "text": "Human-animal conflict in growing cities",
+  "age_band": "12-14",
+  "category": "animals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 269,
+  "text": "Why species extinction should worry us",
+  "age_band": "12-14",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 270,
+  "text": "Stray dogs: compassion versus public safety",
+  "age_band": "12-14",
+  "category": "animals",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 271,
+  "text": "Should India ban animal testing",
+  "age_band": "12-14",
+  "category": "animals",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 272,
+  "text": "Food waste in a country that still goes hungry",
+  "age_band": "12-14",
+  "category": "food",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 273,
+  "text": "Is fast food a real health crisis",
+  "age_band": "12-14",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 274,
+  "text": "Regional cuisine and cultural identity",
+  "age_band": "12-14",
+  "category": "food",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 275,
+  "text": "Should junk food advertising to children be banned",
+  "age_band": "12-14",
+  "category": "food",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 276,
+  "text": "The economics of the school canteen",
+  "age_band": "12-14",
+  "category": "food",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 277,
+  "text": "Farmers and the food on our plate",
+  "age_band": "12-14",
+  "category": "food",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 278,
+  "text": "Is home food always healthier",
+  "age_band": "12-14",
+  "category": "food",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 279,
+  "text": "A day in the life of a person in 2075",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 280,
+  "text": "If artificial intelligence had to write my exam",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 281,
+  "text": "The invention the world still needs",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 282,
+  "text": "If I could redesign the school system",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 283,
+  "text": "A world where lying was impossible",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 284,
+  "text": "If India had one extra state, what would it be for",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 285,
+  "text": "Writing a letter to the person I will be at twenty-five",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 286,
+  "text": "If I ran a company at fourteen",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 287,
+  "text": "A day when the internet stopped working everywhere",
+  "age_band": "12-14",
+  "category": "imagination",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 288,
+  "text": "Social media does more harm than good",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 289,
+  "text": "Should there be an age limit for smartphones",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 290,
+  "text": "Is failure necessary for success",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 291,
+  "text": "Should voting be compulsory",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 292,
+  "text": "Talent versus hard work",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 293,
+  "text": "Does technology make us lonelier",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 294,
+  "text": "Climate change is not a future problem",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 295,
+  "text": "Should online classes replace some school days",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 296,
+  "text": "Is honesty always the right policy",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 297,
+  "text": "Reading books versus watching adaptations",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 298,
+  "text": "Should children be allowed to choose their subjects earlier",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 299,
+  "text": "Does money buy happiness",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 300,
+  "text": "Gender equality begins at home",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 301,
+  "text": "Is cricket given too much importance in India",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 302,
+  "text": "Should homework be optional",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 303,
+  "text": "Is being busy the same as being productive",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 304,
+  "text": "Do we praise talent too much and effort too little",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 305,
+  "text": "Should schools ban mobile phones entirely",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 306,
+  "text": "Is peer pressure always negative",
+  "age_band": "12-14",
+  "category": "opinions",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 307,
+  "text": "Would you rather be misunderstood or ignored",
+  "age_band": "12-14",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 308,
+  "text": "Would you rather have security or freedom",
+  "age_band": "12-14",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 309,
+  "text": "Would you rather change one law or one habit of the whole country",
+  "age_band": "12-14",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 310,
+  "text": "Would you rather know the truth and be unhappy or not know and be content",
+  "age_band": "12-14",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 311,
+  "text": "Would you rather lead a team or work alone",
+  "age_band": "12-14",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 312,
+  "text": "Would you rather be judged by your effort or your results",
+  "age_band": "12-14",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 313,
+  "text": "Would you rather be remembered or be useful",
+  "age_band": "12-14",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 314,
+  "text": "Would you rather have more time or more choices",
+  "age_band": "12-14",
+  "category": "would-you-rather",
+  "modes": [
+   "impromptu"
+  ]
+ },
+ {
+  "id": 315,
+  "text": "My favourite book and the idea it left me with",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 316,
+  "text": "My favourite leader from Indian history",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 317,
+  "text": "My favourite scientist and their contribution",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 318,
+  "text": "My favourite piece of music and why it works",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 319,
+  "text": "My favourite place I have travelled to",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 320,
+  "text": "My favourite quote and what it demands of me",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 321,
+  "text": "My favourite sportsperson and what they got right",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 322,
+  "text": "My favourite thing I have made or built",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 323,
+  "text": "My favourite failure",
+  "age_band": "12-14",
+  "category": "my-favourite",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 324,
+  "text": "If I could address the nation for two minutes",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 325,
+  "text": "If I could solve one problem in my city",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 326,
+  "text": "If I could sit down with Dr APJ Abdul Kalam",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 327,
+  "text": "If I could change one thing about how my generation is seen",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 328,
+  "text": "If I could make one subject compulsory for everyone",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 329,
+  "text": "If I could undo one invention",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 330,
+  "text": "If I had one year with no school and no rules",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared",
+   "impromptu"
+  ]
+ },
+ {
+  "id": 331,
+  "text": "If I could guarantee every Indian child one right",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 332,
+  "text": "If I could speak to my whole school for one minute",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "prepared"
+  ]
+ },
+ {
+  "id": 333,
+  "text": "If I could remove one word from the language",
+  "age_band": "12-14",
+  "category": "if-I-could",
+  "modes": [
+   "impromptu"
+  ]
+ }
+]

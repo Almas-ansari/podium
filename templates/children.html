@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}Profiles — Podium{% endblock %}
+{% block shell_class %}shell--reading{% endblock %}
+
+{% block content %}
+<div class="flow-lg">
+  <div class="band">
+    <p class="label" style="margin-bottom:var(--s3)">{{ parent['email'] }}</p>
+    <h1 style="margin-bottom:var(--s3)">Who is practising?</h1>
+    <p class="lede">
+      One profile per child. Each keeps its own history, streak, topic rotation and voice baseline,
+      so two children sharing this computer never get mixed up.
+    </p>
+  </div>
+
+  {% if request.query_params.get('deleted') %}
+  <div class="notice">That profile and everything under it has been deleted.</div>
+  {% endif %}
+  {% if request.query_params.get('saved') %}<div class="notice notice--good">Profile updated.</div>{% endif %}
+  {% if error == 'name' %}<div class="notice notice--error">Please enter a name.</div>{% endif %}
+  {% if error == 'limit' %}<div class="notice notice--error">You can add up to {{ max_children }} children.</div>{% endif %}
+  {% if error == 'confirm' %}<div class="notice notice--error">Nothing was deleted. Type DELETE exactly to confirm.</div>{% endif %}
+
+  {% if summaries %}
+  <div class="people">
+    {% for item in summaries %}
+    <div class="person {{ 'is-active' if child and item.row.id == child.id }}">
+      <div class="person-top">
+        <span class="avatar avatar--lg">{{ item.row.name[0] | upper }}</span>
+        <span>
+          <b>{{ item.row.name }}</b>
+          <span class="meta">
+            Ages {{ item.row.age_band }} · {{ item.sessions }} speech{{ 'es' if item.sessions != 1 }}
+          </span>
+        </span>
+      </div>
+
+      {% if not item.row.consent_at %}
+      <span class="chip chip--warn">Consent needed</span>
+      {% endif %}
+
+      <div class="person-actions">
+        <form method="post" action="/children/{{ item.row.id }}/select" style="flex:1">
+          <input type="hidden" name="next" value="/">
+          <button class="btn btn--block" type="submit">
+            {% if child and item.row.id == child.id %}Continue{% else %}Practise as {{ item.row.name }}{% endif %}
+          </button>
+        </form>
+      </div>
+
+      <details class="disclose">
+        <summary>Edit</summary>
+        <form method="post" action="/children/{{ item.row.id }}/edit" class="flow-sm">
+          <input class="input" type="text" name="name" value="{{ item.row.name }}" maxlength="60" required aria-label="Name">
+          <div class="segment">
+            {% for band in age_bands %}
+            <label>
+              <input type="radio" name="age_band" value="{{ band }}" {% if item.row.age_band == band %}checked{% endif %}>
+              <span>{{ band }}</span>
+            </label>
+            {% endfor %}
+          </div>
+          <div><button class="btn btn--outline" type="submit">Save changes</button></div>
+        </form>
+      </details>
+
+      <details class="disclose">
+        <summary>Delete profile</summary>
+        <p class="meta" style="margin-bottom:var(--s3)">
+          Removes every recording, transcript and measurement for {{ item.row.name }}. Cannot be undone.
+        </p>
+        <form method="post" action="/children/{{ item.row.id }}/delete" class="row">
+          <input class="input input--inline" type="text" name="confirm" placeholder="Type DELETE" aria-label="Type DELETE to confirm" required>
+          <button class="btn btn--danger" type="submit">Delete</button>
+        </form>
+      </details>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if can_add %}
+  <section>
+    <div class="section-head">
+      <h2>{{ 'Add another child' if summaries else 'Add your first child' }}</h2>
+      <p class="meta">A first name and an age band. Nothing else is stored about your child.</p>
+    </div>
+    <form method="post" action="/children" class="flow">
+      <label class="field" style="margin:0">
+        <span>First name</span>
+        <input class="input" type="text" name="name" required maxlength="60"
+               placeholder="What should we call them?" autocomplete="off">
+      </label>
+      <div>
+        <span class="label" style="display:block; margin-bottom:var(--s2)">Age band</span>
+        <div class="options options--cols">
+          {% set notes = {'6-8': 'Home, school and animals.',
+                          '9-11': 'Assembly topics and first opinions.',
+                          '12-14': 'Debate topics needing a real argument.'} %}
+          {% for band in age_bands %}
+          <label class="option">
+            <input type="radio" name="age_band" value="{{ band }}" {% if band == '9-11' %}checked{% endif %}>
+            <span><b>{{ band }} years</b><em>{{ notes[band] }}</em></span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      <div><button class="btn btn--lg" type="submit">Add child &rarr;</button></div>
+    </form>
+  </section>
+  {% else %}
+  <div class="notice">You have reached the limit of {{ max_children }} child profiles.</div>
+  {% endif %}
+</div>
+{% endblock %}
