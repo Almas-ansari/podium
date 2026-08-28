@@ -1287,3 +1287,51 @@ audio { width: 100%; margin-top: var(--s2); }
   display: block; font-style: normal; font-size: var(--text-xs); color: var(--ink-3);
   overflow: hidden; text-overflow: ellipsis; max-width: 24ch;
 }
+
+/* --- rotating hero preview ------------------------------------------ */
+
+.rotate { display: grid; min-height: 296px; }
+.rotate-panel {
+  grid-area: 1 / 1;
+  opacity: 0;
+  animation: rotate3 16.5s infinite;
+}
+.rotate-panel:nth-child(1) { animation-delay: 0s; }
+.rotate-panel:nth-child(2) { animation-delay: 5.5s; }
+.rotate-panel:nth-child(3) { animation-delay: 11s; }
+
+@keyframes rotate3 {
+   0%    { opacity: 0; transform: translateY(8px); }
+   3%    { opacity: 1; transform: none; }
+  30%    { opacity: 1; transform: none; }
+  34%    { opacity: 0; transform: translateY(-8px); }
+ 100%    { opacity: 0; transform: translateY(-8px); }
+}
+
+.preview-note { margin-top: var(--s3); font-size: var(--text-xs); color: var(--ink-3); }
+
+.mini-timer { position: relative; width: 108px; height: 108px; margin: var(--s3) 0; }
+.mini-timer svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.mini-track { fill: none; stroke: var(--line); stroke-width: 5; }
+.mini-fill {
+  fill: none; stroke: var(--ink); stroke-width: 5; stroke-linecap: round;
+  stroke-dasharray: 327; stroke-dashoffset: 178;
+}
+.mini-time {
+  position: absolute; inset: 0; display: grid; place-content: center;
+  font-size: var(--text-lg); font-weight: 500; letter-spacing: -.03em;
+}
+
+.mini-stats { display: grid; gap: var(--s3); margin: var(--s3) 0 0; }
+.mini-stats > div { display: grid; grid-template-columns: 54px 1fr auto; align-items: baseline; gap: var(--s3); }
+.mini-stats b { font-size: var(--text-lg); font-weight: 500; letter-spacing: -.03em; }
+.mini-stats span { font-size: var(--text-sm); color: var(--ink-3); }
+.mini-stats em { font-style: normal; }
+
+.mini-chart { width: 100%; height: auto; margin-top: var(--s3); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rotate-panel { animation: none; }
+  .rotate-panel:nth-child(1) { opacity: 1; }
+  .rotate-panel:nth-child(n+2) { display: none; }
+}

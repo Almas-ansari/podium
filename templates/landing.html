@@ -26,28 +26,55 @@
         </p>
       </div>
 
-      {# A live render of the real feedback screen, not a stock photo. #}
-      <div class="preview" aria-label="Example of the feedback a child receives">
+      {# Three real screens from the product, cycling. Pure CSS: no library,
+         and it holds on the first panel when motion is reduced. #}
+      <div class="preview" aria-label="What Podium looks like in use">
         <div class="preview-bar">
           <span class="preview-dot"></span><span class="preview-dot"></span><span class="preview-dot"></span>
-          <span class="preview-title">After a 90 second speech</span>
+          <span class="preview-title">A speech, start to finish</span>
         </div>
-        <div class="preview-body">
-          <p class="label preview-eyebrow">You spoke about</p>
-          <p class="preview-topic">The best thing about my school</p>
 
-          <div class="preview-verdict">
-            <span class="label">What you did well &nbsp;<span class="chip chip--good">Thinking</span></span>
-            <p>You gave us a real moment — your teacher staying back after class to explain maths.</p>
+        <div class="preview-body rotate">
+
+          <div class="rotate-panel">
+            <p class="label preview-eyebrow">Speaking now · 90 seconds</p>
+            <p class="preview-topic">The best thing about my school</p>
+            <div class="mini-timer">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <circle class="mini-track" cx="60" cy="60" r="52"/>
+                <circle class="mini-fill" cx="60" cy="60" r="52"/>
+              </svg>
+              <span class="mini-time num">0:41</span>
+            </div>
+            <p class="preview-note"><span class="recording">Recording</span></p>
           </div>
-          <div class="preview-verdict">
-            <span class="label">One thing to try next &nbsp;<span class="chip chip--accent">Speaking</span></span>
-            <p>Next time, slow down a little and take a breath at the end of each sentence.</p>
+
+          <div class="rotate-panel">
+            <p class="label preview-eyebrow">Straight afterwards</p>
+            <div class="preview-verdict">
+              <span class="label">What you did well &nbsp;<span class="chip chip--good">Thinking</span></span>
+              <p>You gave us a real moment — your teacher staying back after class to explain maths.</p>
+            </div>
+            <div class="preview-verdict">
+              <span class="label">One thing to try next &nbsp;<span class="chip chip--accent">Speaking</span></span>
+              <p>Next time, slow down a little and take a breath at the end of each sentence.</p>
+            </div>
           </div>
-          <div class="preview-verdict" style="display:flex; gap:var(--s5)">
-            <span class="streak-item"><b class="num">7</b><span class="meta">speeches</span></span>
-            <span class="streak-item"><b class="num">3</b><span class="meta">days in a row</span></span>
+
+          <div class="rotate-panel">
+            <p class="label preview-eyebrow">For you, on the dashboard</p>
+            <dl class="mini-stats">
+              <div><b class="num">128</b><span>pace, wpm</span><em class="trend trend--better">−40 since first</em></div>
+              <div><b class="num">2.1</b><span>fillers a minute</span><em class="trend trend--better">−6.8</em></div>
+              <div><b class="num">74</b><span>idea quality /100</span><em class="trend trend--better">+13</em></div>
+            </dl>
+            <svg class="mini-chart" viewBox="0 0 260 56" aria-hidden="true">
+              <path class="chart-area" d="M4,44 L56,38 L108,30 L160,20 L212,16 L256,10 L256,52 L4,52 Z"/>
+              <path class="chart-line" d="M4,44 L56,38 L108,30 L160,20 L212,16 L256,10"/>
+            </svg>
+            <p class="preview-note">Seven speeches · 3 days in a row</p>
           </div>
+
         </div>
       </div>
     </div>
