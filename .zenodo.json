@@ -1,0 +1,34 @@
+{
+  "title": "Measuring What Was Said, Not Only How It Sounded: a hybrid deterministic and generative architecture for automated assessment of children's impromptu speech",
+  "upload_type": "publication",
+  "publication_type": "workingpaper",
+  "publication_date": "2026-09-01",
+  "version": "1.0.0",
+  "language": "eng",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "creators": [
+    {
+      "name": "Ansari, Almas",
+      "affiliation": "Accenture"
+    },
+    {
+      "name": "Krishnan, Haresh",
+      "affiliation": "Accenture"
+    }
+  ],
+  "description": "<p>We describe the architecture of a system that assesses short impromptu and prepared speeches by children aged 6 to 14 and returns coaching feedback. The contribution is architectural rather than algorithmic: every component uses established methods, and the claim concerns their composition.</p><p>The system partitions assessment along a strict boundary. Delivery &mdash; speaking rate, hesitation, disfluency, repetition, lexical range, fundamental frequency variation and amplitude contour &mdash; is computed deterministically from the transcript's word-level timestamps and from the audio signal. Content is assessed by a large language model constrained to a seven-dimension rubric and given the transcript only; it is instructed explicitly that it cannot hear the audio. The corrective action returned to the child is selected by a fixed priority ordering evaluated in code, not chosen by the model. Acoustic measures are normalised within-subject against the speaker's own first three sessions and are withheld entirely until that baseline exists. No numeric score is shown to the child at any point.</p><p><strong>This paper reports no empirical results.</strong> The system is implemented and operational, but word error rate on the target population has not been measured, agreement with human raters has not been computed, and no user study has been conducted. Section 9 states an evaluation plan in the future tense; Section 10 states the limitations this imposes.</p>",
+  "keywords": [
+    "speech assessment",
+    "children's speech",
+    "automatic speech recognition",
+    "large language models",
+    "educational technology",
+    "public speaking",
+    "hybrid architecture",
+    "deterministic measurement",
+    "prosody",
+    "within-subject normalisation"
+  ],
+  "notes": "Architecture description of an implemented system. No empirical validation has been performed; see Section 9 (evaluation plan, future tense) and Section 10 (limitations)."
+}
